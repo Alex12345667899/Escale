@@ -1,6 +1,8 @@
 class Trip < ApplicationRecord
   belongs_to :user
-  has_many :steps, :reviews, :bookmarks, dependent: :destroy
+  has_many :steps, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 
   validates :title, presence: true
   validates :description, presence: true
