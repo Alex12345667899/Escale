@@ -1,3 +1,13 @@
 footer {
-  background-color: #F2ABCB;
+  background-color: $pink;
+  color: $dark-blue;
+  padding-bottom: 0px;
+  position:fixed;
+  bottom:0;
+  width:100%;
+
+  a {
+    color: $dark-blue;
+  }
+
 }
