@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :trips, only: %i[index show new create destroy] do
     member do
-      get :trains
+      get "trains"
     end
   end
 
