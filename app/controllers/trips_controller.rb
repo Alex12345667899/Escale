@@ -1,6 +1,10 @@
 class TripsController < ApplicationController
   def index
     @trips = Trip.all
+    # PG search
+    if params[:search] && params[:search][:query].present?
+      @trips = Trip.search_by_title_and_description(params[:search][:query])
+    end
   end
 
   def show
