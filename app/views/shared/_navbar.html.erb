@@ -1,15 +1,26 @@
 <nav class="navbar">
-        <div class="logo">
-            <img src="logo.png" alt="logo">
-        </div>
-        <ul class="nav-links">
-            <li><a href="#">Share your trip</a></li>
-            <li><a href="#">Our Story</a></li>
-            <li><a href="#">Why trains</a></li>
-            <li><a href="#">FAQs</a></li>
-        </ul>
-        <div class="nav-icons">
-            <a href="#"><img src="user-icon.png" alt="User"></a>
-            <a href="#"><img src="cart-icon.png" alt="Cart"></a>
-        </div>
-    </nav>
+  <div class="logo">
+      <img src="logo.png" alt="logo">
+  </div>
+  <ul class="nav-links">
+
+      <li>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+        Create Trip
+      </button>
+
+
+      </li>
+      <%# <li><%= link_to "Share your trip",
+            root_path,
+            class: "btn btn-primary",
+            data: { turbo_frame: "modal" } </li> %>
+      <li><a href="#">Our Story</a></li>
+      <li><a href="#">Why trains</a></li>
+      <li><a href="#">FAQs</a></li>
+  </ul>
+  <div class="nav-icons">
+      <a href="#"><img src="user-icon.png" alt="User"></a>
+      <a href="#"><img src="cart-icon.png" alt="Cart"></a>
+  </div>
+</nav>
