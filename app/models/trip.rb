@@ -6,6 +6,13 @@ class Trip < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :search_by_title_and_synopsis,
+  against: [ :title, :description ],
+  using: {
+    tsearch: { prefix: true }
+  }
   #validates :footprint, presence: true
 
   #before_save :set_total_duration, :set_footprint
