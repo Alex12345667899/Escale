@@ -1,0 +1,23 @@
+.btn-social {
+  background-color: black;
+  color: $white-grey;
+  border-radius: 24px;
+  width: 10%;
+  border-color: $white-grey;
+}
+
+.btn-social:hover {
+  scale: 1.1;
+}
+
+.btn-subscribe {
+  background-color: black;
+  color: $white-grey;
+  border-radius: 16px;
+  width: 15%;
+  border-color: $white-grey;
+}
+
+.btn-subscribe:hover {
+  scale: 1.1;
+}
