@@ -1,15 +1,9 @@
-<nav class="navbar">
-        <div class="logo">
-            <img src="logo.png" alt="logo">
+    <nav class="navbar">
+        <div class="d-flex flex row logo">
+          <div><%= image_tag "logopierro.png", class: "logo img" %></div>
         </div>
-        <ul class="nav-links">
-            <li><a href="#">Share your trip</a></li>
-            <li><a href="#">Our Story</a></li>
-            <li><a href="#">Why trains</a></li>
-            <li><a href="#">FAQs</a></li>
-        </ul>
-        <div class="nav-icons">
-            <a href="#"><img src="user-icon.png" alt="User"></a>
-            <a href="#"><img src="cart-icon.png" alt="Cart"></a>
+
+        <div class="navbar-button d-flex p-2">
+          <%= link_to 'Share my trip', new_trip_path, class:"align-self-center" %>
         </div>
     </nav>
