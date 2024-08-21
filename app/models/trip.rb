@@ -3,9 +3,17 @@ class Trip < ApplicationRecord
   has_many :steps, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  has_many :categories
 
   validates :title, presence: true
   validates :description, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :search_by_title_and_description,
+  against: [ :title, :description],
+  using: {
+    tsearch: { prefix: true }
+  }
   #validates :footprint, presence: true
 
   #before_save :set_total_duration, :set_footprint

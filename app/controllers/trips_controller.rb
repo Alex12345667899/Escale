@@ -1,6 +1,10 @@
 class TripsController < ApplicationController
   def index
     @trips = Trip.all
+    # PG search
+    if params[:search] && params[:search][:query].present?
+      @trips = Trip.search_by_title_and_description(params[:search][:query])
+    end
   end
 
   def show
@@ -16,8 +20,13 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params)
-    @trip.save
-    redirect_to trip_path(@trip)
+    @trip.user = current_user
+    @trip.category = params[:trip][:category].join(" ").strip
+    if @trip.save
+      redirect_to trip_path(@trip)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   # def destroy
