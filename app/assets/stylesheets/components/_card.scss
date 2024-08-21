@@ -72,3 +72,65 @@
     word-spacing: 100vw;
   }
 }
+
+.cards-index-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 24px;
+  grid-row-gap: 24px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.card-index {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.card-index:before {
+  content: '';
+  display: block;
+  padding-bottom: 150%;
+  width: 100%;
+}
+
+.card-index-background {
+  inset: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  filter: brightness(0.75) saturate(1.2) contrast(0.85);
+  position: absolute;
+  transform-origin: center;
+  transform: scale(1) translateZ(0);
+  transition: filter 200ms linear, transform 200ms linear;
+}
+
+.card-index:hover .card-index-background {
+  transform: scale(1.05) translateZ(0);
+}
+
+.card-index-content {
+  left: 0;
+  padding: 24px;
+  position: absolute;
+  top: 0;
+
+  p {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.9rem;
+    text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+    line-height: 1.4;
+    word-spacing: 100vw;
+  }
+}
