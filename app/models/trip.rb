@@ -3,6 +3,7 @@ class Trip < ApplicationRecord
   has_many :steps, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  has_many :categories
 
   validates :title, presence: true
   validates :description, presence: true

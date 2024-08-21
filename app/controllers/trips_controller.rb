@@ -20,8 +20,13 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params)
-    @trip.save
-    redirect_to trip_path(@trip)
+    @trip.user = current_user
+    @trip.category = params[:trip][:category].join(" ").strip
+    if @trip.save
+      redirect_to trip_path(@trip)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   # def destroy
