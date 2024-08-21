@@ -8,7 +8,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #F2ABCB;
+  background-color: $dark-blue;
   padding:15px 20px;
   border-radius: 20px;
   position: fixed;
@@ -41,14 +41,47 @@ body {
 }
 
 .navbar-button {
-  background-color: $dark-blue;
+  background-color: $pink;
   color: $white-grey;
   border-radius: 10px;
-  padding:0px 20px;
+  padding:5px;
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+  }
 }
 
-.navbar-button a {
-  text-decoration: none;
-  color: white;
-  font-size: 18px;
+#navbar_title {
+  color: #FFFFFF;
+}
+
+.nav-list {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  white-space: nowrap;
+  list-style: none;
+  margin: 0;
+}
+
+.nav-link {
+
+  font-weight: 500;
+  padding: 8px;
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font: $headers-font;
+  }
+}
+
+.profile-icon {
+  height: 24px; /* Ajuster la taille de l'icône */
+  margin-right: 15px; /* Espacement entre l'icône et le bouton */
 }
