@@ -16,11 +16,10 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params)
+    @trip.user = current_user
+    @trip.category = params[:trip][:category].join(" ").strip
     if @trip.save
-      respond_to do |format|
-        format.html { redirect_to trips_path(@trip) }
-        format.turbo_stream
-      end
+      redirect_to trip_path(@trip)
     else
       render :new, status: :unprocessable_entity
     end
