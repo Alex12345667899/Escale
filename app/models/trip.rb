@@ -8,8 +8,8 @@ class Trip < ApplicationRecord
   validates :description, presence: true
 
   include PgSearch::Model
-  pg_search_scope :search_by_title_and_synopsis,
-  against: [ :title, :description ],
+  pg_search_scope :search_by_title_and_description,
+  against: [ :title, :description],
   using: {
     tsearch: { prefix: true }
   }
