@@ -54,12 +54,14 @@
 
 <div class="container">
   <div class="cards-index-grid">
-    <div class="card-index">
-      <img class="card-index-background" src="https://images.unsplash.com/photo-1557177324-56c542165309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80">
-      <div class="card-index-content">
-        <p>Trip</p>
-        <h3>Trip Name</h3>
+    <% @trips.each do |trip| %>
+      <div class="card-index">
+        <img class="card-index-background" src="https://images.unsplash.com/photo-1557177324-56c542165309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80">
+        <div class="card-index-content">
+          <p>Trip</p>
+          <h3><%= trip.title %></h3>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>
