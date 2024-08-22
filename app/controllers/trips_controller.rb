@@ -1,4 +1,6 @@
 class TripsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
+
   def index
     @trips = Trip.all
     # PG search
@@ -38,6 +40,10 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:title, :description)
+    params.require(:trip).permit(:title, :description, steps_attributes: [:id,
+                                                                          :_destroy,
+                                                                          :description,
+                                                                          :content,
+                                                                          :title])
   end
 end

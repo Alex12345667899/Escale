@@ -1,3 +1,4 @@
+<div class="margin-navbar"></div>
 <h1>Trips Index</h1>
 
 <div class="dropdown">
@@ -8,6 +9,8 @@
     <button class="dropdown-item" type="button">Action</button>
     <button class="dropdown-item" type="button">Another action</button>
     <button class="dropdown-item" type="button">Something else here</button>
+  </div>
+</div>
 
 <div class="mt-2 mx-5">
   <h1>Trips ___</h1>
@@ -16,13 +19,14 @@
 <div class="container">
   <div class="cards-index-grid">
     <% @trips.each do |trip| %>
-      <div class="card-index">
+      <%= link_to trip_path(trip), class: "card-index" do %>
         <img class="card-index-background" src="https://images.unsplash.com/photo-1557177324-56c542165309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80">
+        <%#= image_tag trip.photo, class: "card-index-background" %>
         <div class="card-index-content">
           <p>Trip</p>
           <h3><%= trip.title %></h3>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
