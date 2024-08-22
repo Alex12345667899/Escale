@@ -18,6 +18,7 @@ class Trip < ApplicationRecord
 
   #before_save :set_total_duration, :set_footprint
 
+  accepts_nested_attributes_for :steps, reject_if: :all_blank, allow_destroy: true
   # private
 
   # def set_total_duration

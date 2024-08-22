@@ -1,10 +1,32 @@
-<%= simple_form_for @trip do |f| %>
+<%= simple_form_for @trip, data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' } do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :category,
-                    collection: ["City", "Capitals", "Beach", "Mountain", "Rural"],
+                    collection: ["City Breaks", "Capitals", "Beach Escapes", "Mountain Getaways", "Rural Retreats", "Adventure Tours", "Cultural Journeys", "Nature & Wildlife", "Food & Wine", "Family Vacations", "Romantic", "Winter Sports", "Backpacking Adventures", "Cycling Tours", "Spiritual", "Eco-Tourism"],
                     as: :check_boxes,
                     input_html: { class: "tag-selector" },
                     item_wrapper_class: 'tag-item' %>
-  <%= f.button :submit %>
+  <div class="m-3">
+    <div class="m-3">
+        <!-- Template for new records -->
+        <template data-nested-form-target="template">
+          <%= f.simple_fields_for :steps, Step.new, child_index: 'NEW_RECORD' do |step_fields| %>
+            <%= render "shared/step_form", f: step_fields %>
+          <% end %>
+        </template>
+        <!-- Existing records -->
+        <%= f.simple_fields_for :steps do |step_fields| %>
+        <% raise %>
+          <%= render "shared/step_form", f: step_fields %>
+        <% end %>
+        <div data-nested-form-target="target"></div>
+        <button type="button" data-action="nested-form#add">Add step</button>
+        <div class="text-center" >
+          <%= f.button :submit, 'Save steps', class: "btn btn-sm btn-primary" %>
+        </div>
+    </div>
+  </div>
+  <div class="text-center" >
+    <%= f.button :submit, "Create", class: "btn btn-primary" %>
+  </div>
 <% end %>
