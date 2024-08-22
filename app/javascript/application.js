@@ -3,3 +3,5 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
+import HideNavbarScroll from "./controllers/hide_navbar_scroll"
+Stimulus.register("hide-navbar", HideNavbarScroll)
