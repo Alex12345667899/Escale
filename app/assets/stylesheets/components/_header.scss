@@ -1,0 +1,36 @@
+.header-index {
+  h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 2rem;        // Taille de la police
+    font-weight: 600;       // Semi-gras (600)
+    color: #444;            // Couleur du texte (gris foncé)
+    margin-bottom: 0.75rem; // Marge inférieure
+    text-align: center;     // Centrer le texte
+    line-height: 1.4;       // Hauteur de ligne pour lisibilité
+    text-transform: uppercase; // Transforme le texte en majuscules
+    letter-spacing: 0.05em; // Espacement entre les lettres
+  }
+
+  h4 {
+    font-size: 1.25rem;
+    font-weight: normal;
+    color: #777;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+}
