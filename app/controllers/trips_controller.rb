@@ -38,6 +38,10 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:title, :description)
+    params.require(:trip).permit(:title, :description, steps_attributes: [:id,
+                                                                          :_destroy,
+                                                                          :description,
+                                                                          :content,
+                                                                          :title])
   end
 end
