@@ -1,7 +1,3 @@
-<h1>Bookmarks (My trips)</h1>
-<h2>Favorites</h2>
-<h4>Planned</h4>
-<p>Don’t wait to book those trips and enjoy blablabla</p>
  <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -11,28 +7,57 @@
     <title>Bootstrap Example</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   </head>
+
+
   <body class="p-3 m-0 border-0 bd-example">
-
-
-    <div class="card mb-3" style="max-width: 1100px; padding-top: 20px;">
-      <div class="row g-0 align-items-center">
-        <div class="col-3">
-          <svg class="bd-placeholder-img img-fluid rounded-start" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image 1" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder 1</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image 1</text></svg>
-        </div>
-        <div class="col-3 mx-2">
-          <svg class="bd-placeholder-img img-fluid rounded-end" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image 2" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder 2</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image 2</text></svg>
-        </div>
-        <div class="col-5">
-            <%# <% @bookmarks.each do |bookmark| %>
-            <%#= link_to bookmarks, class: 'col-6 col-md-4 mb-4 text-decoration-none' do %> %>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    <div class="container">
+      <div class="header-index">
+        <div class="container">
+          <div class="header-index my-5">
+            <h1 class="mb-4 text-center">Bookmarks (My trips)</h1>
+            <h2 class="mb-3 text-center">Favorites</h2>
+            <h4 class="mb-2 text-center">Planned</h4>
+            <p class="lead text-center">Don’t wait to book those trips and enjoy blablabla</p>
           </div>
         </div>
       </div>
     </div>
 
+    <div class="container">
+      <div class="row">
+        <div class="col-9">
+          <div class="card mb-3" style="max-width: 1100px; padding-top: 20px;">
+            <div class="row g-0 align-items-center">
+              <div class="col-3">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkdJ0Q59oD10xc7i9DahM2C-FbboR6Iyqj7Q&s" class="img-fluid rounded-start" alt="Image 1" width="100%" height="250">
+              </div>
+              <div class="col-3 mx-2">
+                <img src="https://static.vecteezy.com/ti/photos-gratuite/p1/26790200-retro-van-dans-montagne-paysage-route-voyage-generatif-ai-photo.jpg" class="img-fluid rounded-end" alt="Image 2" width="100%" height="250">
+              </div>
+              <div class="col-5">
+                <div class="card-body">
+                  <h5 class="card-title">Itinerary </h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente dolore voluptate magni similique, earum a maxime, nesciunt voluptatibus rem sunt neque enim quo, veniam accusantium dolores voluptates animi dicta. Autem.</p>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-3 d-flex flex-column align-items-center justify-content-center">
+          <div class="bookmark-done-button d-flex align-items-center mb-2">
+            <%# <div type="button" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Book</div> %>
+            <div type="button">Book</div>
+          </div>
+          <div class="bookmark-button d-flex align-items-center">
+            <%# <div type="button" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Mark as done</div> %>
+            <div type="button">Mark as done</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </body>
 </html>
