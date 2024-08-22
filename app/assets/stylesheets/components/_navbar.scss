@@ -4,11 +4,13 @@
   border-radius: 20px;
   position: fixed;
   top: 10px;
+  margin-top: 10px; 
   left: 50%;
   transform: translateX(-50%);
   width: 95%;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
+  transition: top 0.3s ease-in-out;
 }
 
 .logo img {
