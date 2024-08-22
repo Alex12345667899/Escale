@@ -1,19 +1,16 @@
-<nav class="navbar d-flex justify-content-between align-items-center">
+<nav class="navbar d-flex justify-content-between align-items-center" id="navbar">
   <div class="d-flex flex row logo">
-     <h1 id="navbar_title" ><%= link_to "Escale", trips_path, class: "text-decoration-none " %></h1>
+     <h1 id="navbar_title" ><%= link_to "Escale", root_path, class: "text-decoration-none " %></h1>
   </div>
   <div>
     <ul class="nav-list">
-        <%# <li class="nav-link"><a href="#!">My trips</a></li>
-        <li class="nav-link"><a href="#!">Infos</a></li>
-        <li class="nav-link"><a href="#!">Trains</a></li> %>
         <li class="nav-link"><%= link_to "Trips", trips_path %></li>
-        <%# <li class="nav-link"><a href="#!">Infos</a></li> %>
         <li class="nav-link"><%= link_to "My trips", bookmarks_path %></li>
     </ul>
   </div>
 
   <div class="navbar-button d-flex align-items-center">
-    <div type="button" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Create Trip </div>
+    <%# <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Create Trip </button> %>
+    <h1><%= link_to "Create a trip", new_trip_path, class: "text-decoration-none " %></h1>
   </div>
 </nav>
