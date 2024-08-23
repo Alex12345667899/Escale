@@ -25,10 +25,10 @@ class TripsController < ApplicationController
     @trip.user = current_user
     @trip.category = params[:trip][:category].join(" ").strip
     if @trip.save
-      params[:trip][:steps_attributes].each_value do |step_attribute|
-        step = Step.new(content: step_attribute[:content], title: step_attribute[:title])
-        step.trip = @trip
-        step.order += 1
+      const = 0
+      @trip.steps.each do |step|
+        step.order = const
+        const += 1
         step.save
       end
       redirect_to trip_path(@trip)
@@ -40,7 +40,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:title, :description, steps_attributes: [ :id,
+    params.require(:trip).permit(:title, :description, :category, steps_attributes: [ :id,
                                                                           :_destroy,
                                                                           :content,
                                                                           :title])
