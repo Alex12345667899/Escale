@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_21_135859) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_23_104928) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,7 +39,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_21_135859) do
     t.string "title"
     t.text "content"
     t.integer "duration"
-    t.integer "order"
+    t.integer "order", default: 0
     t.bigint "trip_id", null: false
     t.float "latitude"
     t.float "longitude"

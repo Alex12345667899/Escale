@@ -21,14 +21,19 @@
 <%# <%= @trip.category %>
 <%# <%= @trip.description %>
 
+<% @trip.steps.each do |step| %>
+<% step.title %>
+<% step.content %>
+<!----><%# latitude = step.latitude%>
+<%# longitude = step.longitude%>
+<% end %>
 
-<%# ``
-<% latitude1 = @trip.steps.first.latitude %>
-<%# <% longitude1 = @trip.steps.first.longitude %>
-<%# <% latitude2 = @trip.steps.last.latitude %>
-<%# <% longitude2 = @trip.steps.last.longitude %>
-<%# <% distance = Geocoder::Calculations.distance_between([latitude1, longitude1], [latitude2, longitude2]) %>
-<%# <%= "#{distance.to_i} km"%>
+<%# latitude1 = @trip.steps.first.latitude %>
+<%# longitude1 = @trip.steps.first.longitude %>
+<%# latitude2 = @trip.steps.last.latitude %>
+<%# longitude2 = @trip.steps.last.longitude %>
+<%# distance = Geocoder::Calculations.distance_between([latitude1, longitude1], [latitude2, longitude2]) %>
+<%# "#{distance.to_i} km"%>
 
 
 <%# <%= @trip.footprint %>
