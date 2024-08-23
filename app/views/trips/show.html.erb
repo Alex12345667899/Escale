@@ -1,30 +1,45 @@
 <div class="margin-navbar"></div>
-<h1>Trip Show</h1>
+
 <%#
 <h1>Trip Map</h1>
 
 <h1>Trip Details</h1> %>
-<%= @trip.title %>
-<%= @trip.category %>
-<%= @trip.description %>
+<h1 class="text-center"><%= @trip.title %></h1>
+<%# <%= @trip.category %>
+<%# <%= @trip.description %>
 
 
-``
+<%# ``
 <% latitude1 = @trip.steps.first.latitude %>
-<% longitude1 = @trip.steps.first.longitude %>
-<% latitude2 = @trip.steps.last.latitude %>
-<% longitude2 = @trip.steps.last.longitude %>
-<% distance = Geocoder::Calculations.distance_between([latitude1, longitude1], [latitude2, longitude2]) %>
-<%= "#{distance.to_i} km"%>
+<%# <% longitude1 = @trip.steps.first.longitude %>
+<%# <% latitude2 = @trip.steps.last.latitude %>
+<%# <% longitude2 = @trip.steps.last.longitude %>
+<%# <% distance = Geocoder::Calculations.distance_between([latitude1, longitude1], [latitude2, longitude2]) %>
+<%# <%= "#{distance.to_i} km"%>
 
 
 <%# <%= @trip.footprint %>
 <%# <%= @trip.total_duration %>
 
-<%# <h1>Trip Steps Cards</h1>
-<div class="container">
+<div>
+  <%# if @trip.bookmarks.to_do? %>
+<!--    <i class="fa-solid fa-bookmark"></i>-->
+  <%# else %>
+<!--    <i class="fa-regular fa-bookmark"></i>-->
+  <%# end %>
+</div>
 
-<h1>Trip Steps Cards</h1>
+<div class="my-5 mx-5">
+  <h2>Trip's Steps ___</h2>
+</div>
+
+<% @trip.steps.each do |step| %>
+  <% if step.order.even? %>
+    <%= render 'left_step_card', step: step %>
+  <% else %>
+    <%= render 'right_step_card', step: step %>
+  <% end %>
+<% end %>
 
 <%# <div class="card-steps swiper-container" data-controller="card-swiper" data-card-swiper-target="cardsSteps">
   <div class="card-steps__wrp swiper-wrapper">
