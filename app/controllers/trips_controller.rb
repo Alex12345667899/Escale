@@ -10,6 +10,7 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+    @user_trip_bookmark = Bookmark.find_by(user: current_user, trip: @trip)
   end
 
   def trains

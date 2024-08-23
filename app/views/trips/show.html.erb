@@ -1,12 +1,25 @@
 <div class="margin-navbar"></div>
-<h1>Trip Show</h1>
-<%#
-<h1>Trip Map</h1>
 
-<h1>Trip Details</h1> %>
-<%= @trip.title %>
-<%= @trip.category %>
-<%= @trip.description %>
+<%#
+<h1>Trip Map</h1> %>
+
+<h1 class="mx-5">
+  <div class="d-flex gap-3 align-items-center mb-5">
+    <%= @trip.title %>
+      <% if @user_trip_bookmark.present? && @user_trip_bookmark.to_do? %>
+        <%#= link_to trip_bookmarks_path(trip_id: @trip.id), data: { turbo_method: :update } do %>
+          <i class="fa-solid fa-bookmark"></i>
+        <%# end %>
+      <% else %>
+        <%= button_to trip_bookmarks_path(trip_id: @trip.id), data: { turbo_method: :create } do %>
+          <i class="fa-regular fa-bookmark black"></i>
+        <% end %>
+      <% end %>
+  </div>
+</h1>
+
+<%# <%= @trip.category %>
+<%# <%= @trip.description %>
 
 <% @trip.steps.each do |step| %>
 <% step.title %>
@@ -26,10 +39,17 @@
 <%# <%= @trip.footprint %>
 <%# <%= @trip.total_duration %>
 
-<%# <h1>Trip Steps Cards</h1>
-<div class="container">
+<%# <div class="my-5 mx-5">
+  <h2>Trip's Steps ___</h2>
+</div> %>
 
-<h1>Trip Steps Cards</h1>
+<% @trip.steps.each do |step| %>
+  <% if step.order.even? %>
+    <%= render 'left_step_card', step: step %>
+  <% else %>
+    <%= render 'right_step_card', step: step %>
+  <% end %>
+<% end %>
 
 <%# <div class="card-steps swiper-container" data-controller="card-swiper" data-card-swiper-target="cardsSteps">
   <div class="card-steps__wrp swiper-wrapper">

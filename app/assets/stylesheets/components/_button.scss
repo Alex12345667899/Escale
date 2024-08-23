@@ -1,3 +1,31 @@
+.btn-general-blue {
+  background-color: $dark-blue;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 16px 60px 16px 16px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn-general-blue:hover {
+  background-color: $pink;
+  color: black;
+}
+
+.btn-general-pink {
+  background-color: $pink;
+  color: black;
+  padding: 8px 24px;
+  border-radius: 16px 60px 16px 16px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn-general-pink:hover {
+  background-color: $dark-blue;
+  color: white;
+}
+
 .btn-social {
   background-color: black;
   color: $white-grey;
@@ -41,6 +69,7 @@
     font-size: 20px;
   }
 }
+
 .bookmark-done-button {
   background-color: $dark-blue;
   color: $white-grey;
@@ -59,4 +88,8 @@
     color: white;
     font-size: 20px;
   }
+}
+
+.black {
+  color: black;
 }

@@ -31,4 +31,12 @@ class Trip < ApplicationRecord
   #   total_footprint = 0
   #   self.footprint = total_footprint
   # end
+
+  def filter_by_even_order
+    self.steps.select { |step| step.order.even? }
+  end
+
+  def filter_by_odd_order
+    self.steps.select { |step| step.order.odd? }
+  end
 end

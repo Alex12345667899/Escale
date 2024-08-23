@@ -4,9 +4,13 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    @bookmark = Bookmark.new(bookmark_params)
-    @bookmark.save
-    #ajax stimulus pour éviter le reload du redirect
+    @bookmark = Bookmark.new
+    @bookmark.trip_id = params[:trip_id]
+    @bookmark.user = current_user
+    @bookmark.to_do!
+    if @bookmark.save
+      redirect_to trip_path(trip_id: params[:trip_id])
+    end
   end
 
   def update
