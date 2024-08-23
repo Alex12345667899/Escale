@@ -9,7 +9,7 @@ class BookmarksController < ApplicationController
     @bookmark.user = current_user
     @bookmark.to_do!
     if @bookmark.save
-      redirect_to trip_path(trip_id: params[:trip_id])
+      redirect_to trip_path(id: params[:trip_id].to_i)
     end
   end
 
