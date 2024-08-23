@@ -11,8 +11,7 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
-    # @steps_odd = @trip.filter_by_odd_order
-    # @steps_even = @trip.filter_by_even_order
+    @user_trip_bookmark = Bookmark.find_by(user: current_user, trip: @trip)
   end
 
   def trains
