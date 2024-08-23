@@ -1,8 +1,17 @@
 <div class="margin-navbar"></div>
-<h1>Trips Index</h1>
-<%#
-<%#
-<div class="dropdown">
+
+<div class="d-flex justify-content-center align-items-center">
+  <%= simple_form_for :search, url: trips_path, method: :get do |f| %>
+    <div class="search-form-control form-group mb-3 mt-5">
+      <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+      <button name="button" type="submit" class="btn btn-flat">
+      <p class="search-placeholder"><i class="fas fa-search"></i></p>
+      </button>
+    </div>
+  <% end %>
+</div>
+
+<!--<div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Dropdown
   </button>
@@ -11,9 +20,9 @@
     <button class="dropdown-item" type="button">Another action</button>
     <button class="dropdown-item" type="button">Something else here</button>
   </div>
-</div> %>
+</div>-->
 
-<div class="mt-2 mx-5">
+<div class="mx-5">
   <h1>Trips ___</h1>
 </div>
 
@@ -21,7 +30,7 @@
   <div class="cards-index-grid">
     <% @trips.each do |trip| %>
       <%= link_to trip_path(trip), class: "card-index" do %>
-        <img class="card-index-background" src="https://images.unsplash.com/photo-1557177324-56c542165309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80">
+        <img class="card-index-background" src="https://plus.unsplash.com/premium_photo-1674716518188-e5763982eb59?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dHJhaW58ZW58MHx8MHx8fDA%3D">
         <%#= image_tag trip.photo, class: "card-index-background" %>
         <div class="card-index-content">
           <p>Trip</p>

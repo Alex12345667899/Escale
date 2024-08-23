@@ -11,12 +11,13 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :trips, only: %i[index show new create destroy] do
+    resources :bookmarks, only: %i[create]
     member do
       get "trains"
     end
   end
 
-  resources :bookmarks, only: %i[index create update destroy] do
+  resources :bookmarks, only: %i[index update destroy] do
     resources :reviews, only: %i[create]
   end
 end

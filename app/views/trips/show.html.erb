@@ -1,10 +1,23 @@
 <div class="margin-navbar"></div>
 
 <%#
-<h1>Trip Map</h1>
+<h1>Trip Map</h1> %>
 
-<h1>Trip Details</h1> %>
-<h1 class="text-center"><%= @trip.title %></h1>
+<h1 class="mx-5">
+  <div class="d-flex gap-3 align-items-center">
+    <%= @trip.title %>
+      <% if @user_trip_bookmark.present? && @user_trip_bookmark.to_do? %>
+        <%#= link_to trip_bookmarks_path(trip_id: @trip.id), data: { turbo_method: :update } do %>
+          <i class="fa-solid fa-bookmark"></i>
+        <%# end %>
+      <% else %>
+        <%= button_to trip_bookmarks_path(trip_id: @trip.id), data: { turbo_method: :create } do %>
+          <i class="fa-regular fa-bookmark black"></i>
+        <% end %>
+      <% end %>
+  </div>
+</h1>
+
 <%# <%= @trip.category %>
 <%# <%= @trip.description %>
 
@@ -20,14 +33,6 @@
 
 <%# <%= @trip.footprint %>
 <%# <%= @trip.total_duration %>
-
-<div>
-  <%# if @trip.bookmarks.to_do? %>
-<!--    <i class="fa-solid fa-bookmark"></i>-->
-  <%# else %>
-<!--    <i class="fa-regular fa-bookmark"></i>-->
-  <%# end %>
-</div>
 
 <div class="my-5 mx-5">
   <h2>Trip's Steps ___</h2>
