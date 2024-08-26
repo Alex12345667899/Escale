@@ -2,12 +2,17 @@
   <div class="card-steps-left">
     <div class="card-steps-left__item">
       <div class="card-steps-left__img">
-        <img src="https://images.pexels.com/photos/1670187/pexels-photo-1670187.jpeg?auto=compress&cs=tinysrgb&w=800">
+        <% if step.photo.present? %>
+          <%= cl_image_tag step.photo.key %>
+        <% else %>
+          <img src="https://images.pexels.com/photos/1670187/pexels-photo-1670187.jpeg?auto=compress&cs=tinysrgb&w=800">
+        <% end %>
       </div>
-      <div class="card-steps-left__content">
+      <div class="card-steps-lef  t__content">
         <span class="card-steps-left__code">Step <%= step.order + 1 %></span>
         <h3><%= step.title %></h3>
         <p><%= step.content %></p>
+        <p><i><%= "#{step.duration} days, #{step.distance} km" %></i></p>
       </div>
     </div>
   </div>

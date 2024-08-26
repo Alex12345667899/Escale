@@ -1,11 +1,24 @@
 <div class="margin-navbar"></div>
 
-<%#
-<h1>Trip Map</h1> %>
+<% #----------------SETUP-------------- %>
+<%# trip_duration = 0 %>
+<%# trip_distance = 0 %>
+<%# @trip.steps.each_with_index do |step, index| %>
+  <%# trip_duration += step.duration %>
+  <%# if index > 0 %>
+    <%# previous_step = @trip.steps[index-1] %>
+    <%# step.distance = Geocoder::Calculations.distance_between([step.latitude, step.longitude], [previous_step.latitude, previous_step.longitude]) %>
+  <%# elsif index == 0 %>
+    <%# step.distance = 0 %>
+  <%# end %>
+  <%# trip_distance += step.distance %>
+<%# end %>
+<% #---------------/SETUP-------------- %>
+
 
 <h1 class="mx-5">
   <div class="d-flex gap-3 align-items-center mb-5">
-    <%= @trip.title %>
+    <%= @trip.title %> <%= "(#{@trip.total_duration} days, #{@trip.total_distance} km)" %>
       <% if @user_trip_bookmark.present? && @user_trip_bookmark.to_do? %>
         <%#= link_to trip_bookmarks_path(trip_id: @trip.id), data: { turbo_method: :update } do %>
           <i class="fa-solid fa-bookmark"></i>
@@ -18,30 +31,6 @@
   </div>
 </h1>
 
-<%# <%= @trip.category %>
-<%# <%= @trip.description %>
-
-<% @trip.steps.each do |step| %>
-<% step.title %>
-<% step.content %>
-<!----><%# latitude = step.latitude%>
-<%# longitude = step.longitude%>
-<% end %>
-
-<%# latitude1 = @trip.steps.first.latitude %>
-<%# longitude1 = @trip.steps.first.longitude %>
-<%# latitude2 = @trip.steps.last.latitude %>
-<%# longitude2 = @trip.steps.last.longitude %>
-<%# distance = Geocoder::Calculations.distance_between([latitude1, longitude1], [latitude2, longitude2]) %>
-<%# "#{distance.to_i} km"%>
-
-
-<%# <%= @trip.footprint %>
-<%# <%= @trip.total_duration %>
-
-<%# <div class="my-5 mx-5">
-  <h2>Trip's Steps ___</h2>
-</div> %>
 
 <% @trip.steps.each do |step| %>
   <% if step.order.even? %>
