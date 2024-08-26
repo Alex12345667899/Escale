@@ -5,6 +5,8 @@ class TripsController < ApplicationController
     @trips = Trip.all
     if params[:search] && params[:search][:query].present?
       @trips = Trip.search_by_title_and_description(params[:search][:query])
+    elsif params[:category].present?
+      @trips = Trip.where('category LIKE ?', "%#{params[:category]}%")
     end
   end
 
