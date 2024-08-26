@@ -7,4 +7,5 @@ class Step < ApplicationRecord
 
   validates :title, presence: true
   validates :content, presence: true
+  validates :duration, presence: true
 end
