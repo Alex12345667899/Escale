@@ -73,6 +73,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_26_144456) do
     t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "distance"
     t.index ["trip_id"], name: "index_steps_on_trip_id"
   end
 
@@ -84,6 +85,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_26_144456) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "category"
+    t.integer "total_distance"
+    t.integer "total_duration"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 

@@ -25,8 +25,8 @@
           <img class="card-index-background" src="https://plus.unsplash.com/premium_photo-1674716518188-e5763982eb59?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dHJhaW58ZW58MHx8MHx8fDA%3D">
         <% end %>
         <div class="card-index-content">
-          <p>Trip</p>
           <h3><%= trip.title %></h3>
+          <p><i><%= "#{trip.total_duration} days, #{trip.total_distance} km" %></i></p>
         </div>
       <% end %>
     <% end %>

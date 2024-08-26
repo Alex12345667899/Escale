@@ -23,22 +23,25 @@ class Trip < ApplicationRecord
   accepts_nested_attributes_for :steps, reject_if: :all_blank, allow_destroy: true
   # private
 
-  # def set_total_duration
-  #   journey = (end_date - start_date).to_i
-  #   full_duration = journey * self.offer.duration
-  #   self.total_duration = full_duration
-  # end
-
   # def set_footprint
   #   total_footprint = 0
   #   self.footprint = total_footprint
   # end
 
-  def filter_by_even_order
-    self.steps.select { |step| step.order.even? }
-  end
-
-  def filter_by_odd_order
-    self.steps.select { |step| step.order.odd? }
+  def set_total_distance_and_duration
+    self.total_duration = 0
+    self.total_distance = 0
+    self.steps.each_with_index do |step, index|
+      self.total_duration += step.duration
+      if index > 0
+        previous_step = self.steps[index-1]
+        step.distance = Geocoder::Calculations.distance_between([step.latitude, step.longitude], [previous_step.latitude, previous_step.longitude])
+      elsif index == 0
+        step.distance = 0
+      end
+      step.save
+      self.total_distance += step.distance
+    end
+    self.save
   end
 end
