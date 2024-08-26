@@ -5,12 +5,21 @@ class TripsController < ApplicationController
     @trips = Trip.all
     if params[:search] && params[:search][:query].present?
       @trips = Trip.search_by_title_and_description(params[:search][:query])
+    elsif params[:category].present?
+      @trips = Trip.where('category LIKE ?', "%#{params[:category]}%")
     end
   end
 
   def show
     @trip = Trip.find(params[:id])
     @user_trip_bookmark = Bookmark.find_by(user: current_user, trip: @trip)
+    @markers = @trip.steps.map do |step|
+      {
+        lat: step.latitude,
+        lng: step.longitude,
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
   end
 
   def trains
@@ -31,6 +40,7 @@ class TripsController < ApplicationController
         const += 1
         step.save
       end
+      @trip.set_total_distance_and_duration
       redirect_to trip_path(@trip)
     else
       render :new, status: :unprocessable_entity
@@ -40,9 +50,6 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:title, :description, :category, steps_attributes: [ :id,
-                                                                          :_destroy,
-                                                                          :content,
-                                                                          :title])
+    params.require(:trip).permit(:title, :description, :category, :photo, steps_attributes: %i[id destroy duration content title photo])
   end
 end

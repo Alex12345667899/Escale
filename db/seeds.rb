@@ -12,12 +12,12 @@ User.destroy_all
 puts "All users were destroyed"
 
 user_attributes = [
-  { email: "max.dubois@gmail.com", password: "azerty" },
-  { email: "emma.leroy@yahoo.com", password: "azerty" },
-  { email: "leo.martin@hotmail.com", password: "azerty" },
-  { email: "lisa.moreau@outlook.com", password: "azerty" },
-  { email: "nina.durand@gmail.com", password: "azerty" },
-  { email: "tom.renard@yahoo.com", password: "azerty" }
+  { email: "max.dubois@gmail.com", password: "azerty", picture: "https://images.unsplash.com/photo-1508978053361-f0df91897005?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG1hbiUyMGFuZCUyMHdvbWFufGVufDB8fDB8fHww" },
+  { email: "emma.leroy@yahoo.com", password: "azerty", picture: "https://plus.unsplash.com/premium_photo-1689551670902-19b441a6afde?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d29tYW58ZW58MHx8MHx8fDA%3D" },
+  { email: "leo.martin@hotmail.com", password: "azerty", picture: "https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFufGVufDB8fDB8fHww" },
+  { email: "lisa.moreau@outlook.com", password: "azerty", picture: "https://images.unsplash.com/photo-1664575602554-2087b04935a5?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d29tYW58ZW58MHx8MHx8fDA%3D" },
+  { email: "nina.durand@gmail.com", password: "azerty", picture: "https://plus.unsplash.com/premium_photo-1688385848467-781c5394c017?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8d29tYW58ZW58MHx8MHx8fDA%3D" },
+  { email: "tom.renard@yahoo.com", password: "azerty", picture: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bWFufGVufDB8fDB8fHww" }
 ]
 
 user_attributes.each do |user_attribute|
@@ -30,11 +30,11 @@ puts "All trips were destroyed"
 
 trip_attributes = [
   # { title: " ", description: " ", footprint: " " },
-  { title: "Bordeaux to Berlin", description: "Travel from Bordeaux to Berlin, passing through Paris, Brussels, and Amsterdam, exploring iconic landmarks, famous cuisine, and historical sites.", footprint: 275, user: User.first },
-  { title: "Bordeaux to Nice", description: "Journey from Bordeaux to Nice via Madrid and Barcelona, experiencing vibrant Spanish culture and the beauty of the French Riviera.", footprint: 320, user: User.first },
-  { title: "Bordeaux to Prague", description: "Begin in Bordeaux and travel through Geneva, Milan, Venice, and Vienna before reaching Prague, enjoying stunning architecture and rich history.", footprint: 450, user: User.first },
-  { title: "Bordeaux to Munich", description: "Start in Bordeaux, visit Lyon and Zurich, and conclude your trip in Munich, exploring culinary delights, lakeside views, and historic sites.", footprint: 310, user: User.first },
-  { title: "Bordeaux to Valencia", description: "Travel from Bordeaux to Valencia with stops in Lisbon, Seville, and Granada, experiencing the rich history and vibrant culture of the Iberian Peninsula.", footprint: 370, user: User.first }
+  { title: "Bordeaux to Berlin", description: "Travel from Bordeaux to Berlin, passing through Paris, Brussels, and Amsterdam, exploring iconic landmarks, famous cuisine, and historical sites.", footprint: 275, user: User.first, category: "Capital Cities" },
+  { title: "Bordeaux to Nice", description: "Journey from Bordeaux to Nice via Madrid and Barcelona, experiencing vibrant Spanish culture and the beauty of the French Riviera.", footprint: 320, user: User.first, category: ["Beach Escapes", "Rural Retreats"] },
+  { title: "Bordeaux to Prague", description: "Begin in Bordeaux and travel through Geneva, Milan, Venice, and Vienna before reaching Prague, enjoying stunning architecture and rich history.", footprint: 450, user: User.first, category: ["Capital Cities", "Mountain Gateaways", "Rural Retreats"] },
+  { title: "Bordeaux to Munich", description: "Start in Bordeaux, visit Lyon and Zurich, and conclude your trip in Munich, exploring culinary delights, lakeside views, and historic sites.", footprint: 310, user: User.first, category: "Capital Cities" },
+  { title: "Bordeaux to Valencia", description: "Travel from Bordeaux to Valencia with stops in Lisbon, Seville, and Granada, experiencing the rich history and vibrant culture of the Iberian Peninsula.", footprint: 370, user: User.first, category: ["Beach Escapes", "Mountain Gateaways", "Rural Retreats"] }
 ]
 
 trip_attributes.each do |trip_attribute|
@@ -79,5 +79,11 @@ step_attributes.each do |step_attribute|
   Step.create!(step_attribute)
 end
 puts "#{Step.count} steps created"
+
+
+Trip.all.each do |trip|
+  trip.set_total_distance_and_duration
+end
+
 
 #-----------------------------------------------
