@@ -31,6 +31,7 @@ class TripsController < ApplicationController
         const += 1
         step.save
       end
+      @trip.set_total_distance_and_duration
       redirect_to trip_path(@trip)
     else
       render :new, status: :unprocessable_entity
@@ -42,6 +43,7 @@ class TripsController < ApplicationController
   def trip_params
     params.require(:trip).permit(:title, :description, :category, steps_attributes: [ :id,
                                                                           :_destroy,
+                                                                          :duration,
                                                                           :content,
                                                                           :title])
   end

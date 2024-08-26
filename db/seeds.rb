@@ -80,4 +80,10 @@ step_attributes.each do |step_attribute|
 end
 puts "#{Step.count} steps created"
 
+
+Trip.all.each do |trip|
+  trip.set_total_distance_and_duration
+end
+
+
 #-----------------------------------------------
