@@ -1,25 +1,26 @@
 <div class="margin-navbar"></div>
 
-<%#
-<h1>Trip Map</h1> %>
-
 <h1 class="mx-5">
   <div class="d-flex gap-3 align-items-center mb-5">
     <%= @trip.title %>
-      <% if @user_trip_bookmark.present? && @user_trip_bookmark.to_do? %>
-        <%#= link_to trip_bookmarks_path(trip_id: @trip.id), data: { turbo_method: :update } do %>
-          <i class="fa-solid fa-bookmark"></i>
-        <%# end %>
-      <% else %>
-        <%= button_to trip_bookmarks_path(trip_id: @trip.id), data: { turbo_method: :create } do %>
-          <i class="fa-regular fa-bookmark black"></i>
-        <% end %>
+
+    <% if @user_trip_bookmark.present? %>
+      <!-- Si le bookmark est présent, afficher l'icône remplie avec un lien pour le retirer -->
+      <%= button_to trip_bookmarks_path(@user_trip_bookmark), method: :delete, class: 'text-decoration-none' do %>
+        <i class="fa-solid fa-bookmark active-bookmark"></i>
       <% end %>
+    <% else %>
+      <!-- Si le bookmark n'est pas présent, afficher l'icône vide avec un lien pour l'ajouter -->
+      <%= button_to trip_bookmarks_path(trip_id: @trip.id), method: :post, class: 'text-decoration-none' do %>
+        <i class="fa-regular fa-bookmark"></i>
+      <% end %>
+    <% end %>
+
   </div>
 </h1>
 
-<%# <%= @trip.category %>
-<%# <%= @trip.description %>
+
+
 
 <% @trip.steps.each do |step| %>
 <% step.title %>
