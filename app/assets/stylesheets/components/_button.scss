@@ -26,6 +26,23 @@
   color: white;
 }
 
+.navbar-button {
+  background-color: $pink;
+  color: $white-grey;
+  border-radius: 10px;
+  padding:12px;
+
+  a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+  }
+}
+
+.navbar-button:hover {
+  scale: 0.9;
+}
+
 .btn-social {
   background-color: black;
   color: $white-grey;
