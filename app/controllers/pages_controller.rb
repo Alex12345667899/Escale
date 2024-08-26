@@ -4,4 +4,7 @@ class PagesController < ApplicationController
   def home
     @trips = Trip.all
   end
+
+  def footprint
+  end
 end
