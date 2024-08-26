@@ -5,6 +5,8 @@ class TripsController < ApplicationController
     @trips = Trip.all
     if params[:search] && params[:search][:query].present?
       @trips = Trip.search_by_title_and_description(params[:search][:query])
+    elsif params[:category].present?
+      @trips = Trip.where('category LIKE ?', "%#{params[:category]}%")
     end
   end
 
@@ -41,10 +43,6 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:title, :description, :category, steps_attributes: [ :id,
-                                                                          :_destroy,
-                                                                          :duration,
-                                                                          :content,
-                                                                          :title])
+    params.require(:trip).permit(:title, :description, :category, :photo, steps_attributes: %i[id destroy duration content title photo])
   end
 end

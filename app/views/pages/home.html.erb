@@ -18,34 +18,15 @@
 
 <div class="container">
   <div class="cards-category-grid">
-    <div class="card-category">
-      <img class="card-category-background" src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBhcmlzfGVufDB8fDB8fHww">
-      <div class="card-category-content">
-        <p>Category</p>
-        <h3>Capital Cities</h3>
-      </div>
-    </div>
-    <div class="card-category">
-      <img class="card-category-background" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2h8ZW58MHx8MHx8fDA%3D">
-      <div class="card-category-content">
-        <p>Category</p>
-        <h3>Beach</h3>
-      </div>
-    </div>
-    <div class="card-category">
-      <img class="card-category-background" src="https://images.unsplash.com/photo-1688368582790-d03a262d7470?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHJ1cmFsJTIwdmlsbGFnZXxlbnwwfHwwfHx8MA%3D%3D">
-      <div class="card-category-content">
-        <p>Category</p>
-        <h3>Rural Escape</h3>
-      </div>
-    </div>
-    <div class="card-category">
-      <img class="card-category-background" src="https://plus.unsplash.com/premium_photo-1673240367277-e1d394465b56?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bW91bnRhaW58ZW58MHx8MHx8fDA%3D">
-      <div class="card-category-content">
-        <p>Category</p>
-        <h3>Mountains</h3>
-      </div>
-    </div>
+    <% @categories.each do |k, v| %>
+      <%= link_to trips_path(category: k), class: "card-category" do %>
+        <img class="card-category-background" src=<%= v %>>
+        <div class="card-category-content">
+          <p>Category</p>
+          <h3><%= k %></h3>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
 
@@ -57,8 +38,11 @@
   <div class="cards-index-grid">
     <% @trips.each do |trip| %>
       <%= link_to trip_path(trip), class: "card-index" do %>
-        <img class="card-index-background" src="https://plus.unsplash.com/premium_photo-1674716518188-e5763982eb59?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dHJhaW58ZW58MHx8MHx8fDA%3D">
-        <%#= image_tag trip.photo, class: "card-index-background" %>
+        <% if trip.photo.present? %>
+          <%= cl_image_tag trip.photo.key, class: "card-index-background" %>
+        <% else %>
+          <img class="card-index-background" src="https://plus.unsplash.com/premium_photo-1674716518188-e5763982eb59?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dHJhaW58ZW58MHx8MHx8fDA%3D">
+        <% end %>
         <div class="card-index-content">
           <p>Trip</p>
           <h3><%= trip.title %></h3>

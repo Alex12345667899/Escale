@@ -30,11 +30,11 @@ puts "All trips were destroyed"
 
 trip_attributes = [
   # { title: " ", description: " ", footprint: " " },
-  { title: "Bordeaux to Berlin", description: "Travel from Bordeaux to Berlin, passing through Paris, Brussels, and Amsterdam, exploring iconic landmarks, famous cuisine, and historical sites.", footprint: 275, user: User.first },
-  { title: "Bordeaux to Nice", description: "Journey from Bordeaux to Nice via Madrid and Barcelona, experiencing vibrant Spanish culture and the beauty of the French Riviera.", footprint: 320, user: User.first },
-  { title: "Bordeaux to Prague", description: "Begin in Bordeaux and travel through Geneva, Milan, Venice, and Vienna before reaching Prague, enjoying stunning architecture and rich history.", footprint: 450, user: User.first },
-  { title: "Bordeaux to Munich", description: "Start in Bordeaux, visit Lyon and Zurich, and conclude your trip in Munich, exploring culinary delights, lakeside views, and historic sites.", footprint: 310, user: User.first },
-  { title: "Bordeaux to Valencia", description: "Travel from Bordeaux to Valencia with stops in Lisbon, Seville, and Granada, experiencing the rich history and vibrant culture of the Iberian Peninsula.", footprint: 370, user: User.first }
+  { title: "Bordeaux to Berlin", description: "Travel from Bordeaux to Berlin, passing through Paris, Brussels, and Amsterdam, exploring iconic landmarks, famous cuisine, and historical sites.", footprint: 275, user: User.first, category: "Capital Cities" },
+  { title: "Bordeaux to Nice", description: "Journey from Bordeaux to Nice via Madrid and Barcelona, experiencing vibrant Spanish culture and the beauty of the French Riviera.", footprint: 320, user: User.first, category: ["Beach Escapes", "Rural Retreats"] },
+  { title: "Bordeaux to Prague", description: "Begin in Bordeaux and travel through Geneva, Milan, Venice, and Vienna before reaching Prague, enjoying stunning architecture and rich history.", footprint: 450, user: User.first, category: ["Capital Cities", "Mountain Gateaways", "Rural Retreats"] },
+  { title: "Bordeaux to Munich", description: "Start in Bordeaux, visit Lyon and Zurich, and conclude your trip in Munich, exploring culinary delights, lakeside views, and historic sites.", footprint: 310, user: User.first, category: "Capital Cities" },
+  { title: "Bordeaux to Valencia", description: "Travel from Bordeaux to Valencia with stops in Lisbon, Seville, and Granada, experiencing the rich history and vibrant culture of the Iberian Peninsula.", footprint: 370, user: User.first, category: ["Beach Escapes", "Mountain Gateaways", "Rural Retreats"] }
 ]
 
 trip_attributes.each do |trip_attribute|
