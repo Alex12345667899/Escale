@@ -3,6 +3,8 @@ class Step < ApplicationRecord
   geocoded_by :title
   after_validation :geocode, if: :will_save_change_to_title?
 
+  has_one_attached :photo
+
   validates :title, presence: true
   validates :content, presence: true
 end

@@ -42,9 +42,6 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:title, :description, :category, steps_attributes: [ :id,
-                                                                          :_destroy,
-                                                                          :content,
-                                                                          :title])
+    params.require(:trip).permit(:title, :description, :category, :photo, steps_attributes: %i[id destroy content title photo])
   end
 end
