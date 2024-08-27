@@ -4,8 +4,8 @@
               nested_form_wrapper_selector_value: '.nested-form-wrapper',
               action: "submit->coordinates#setcoordinates"
                   } do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
+  <%= f.input :title, label: 'Trip title' %>
+  <%= f.input :description, label: 'Trip description' %>
   <%= f.input :category,
               collection: ["Capital Cities", "Beach Escapes", "Mountain Gateaways", "Rural Retreats"],
               as: :check_boxes,
@@ -21,17 +21,17 @@
             <%= render "shared/step_form", f: step_fields %>
           <% end %>
         </template>
+
         <!-- Existing records -->
         <%= f.simple_fields_for :steps do |step_fields| %>
           <%= render "shared/step_form", f: step_fields %>
         <% end %>
+
         <div data-nested-form-target="target"></div>
         <button type="button" data-action="nested-form#add">Add step</button>
-<!--        <div class="text-center" >-->
-          <%#= f.button :submit, 'Save steps', class: "btn btn-sm btn-primary" %>
-<!--        </div>-->
     </div>
   </div>
+
   <div class="text-center" >
     <%= f.button :submit, "Save the complete trip", class: "bookmark-done-button" %>
   </div>

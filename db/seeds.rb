@@ -29,12 +29,11 @@ Trip.destroy_all
 puts "All trips were destroyed"
 
 trip_attributes = [
-  # { title: " ", description: " ", footprint: " " },
-  { title: "Bordeaux to Berlin", description: "Travel from Bordeaux to Berlin, passing through Paris, Brussels, and Amsterdam, exploring iconic landmarks, famous cuisine, and historical sites.", footprint: 275, user: User.first, category: "Capital Cities" },
-  { title: "Bordeaux to Nice", description: "Journey from Bordeaux to Nice via Madrid and Barcelona, experiencing vibrant Spanish culture and the beauty of the French Riviera.", footprint: 320, user: User.first, category: ["Beach Escapes", "Rural Retreats"] },
-  { title: "Bordeaux to Prague", description: "Begin in Bordeaux and travel through Geneva, Milan, Venice, and Vienna before reaching Prague, enjoying stunning architecture and rich history.", footprint: 450, user: User.first, category: ["Capital Cities", "Mountain Gateaways", "Rural Retreats"] },
-  { title: "Bordeaux to Munich", description: "Start in Bordeaux, visit Lyon and Zurich, and conclude your trip in Munich, exploring culinary delights, lakeside views, and historic sites.", footprint: 310, user: User.first, category: "Capital Cities" },
-  { title: "Bordeaux to Valencia", description: "Travel from Bordeaux to Valencia with stops in Lisbon, Seville, and Granada, experiencing the rich history and vibrant culture of the Iberian Peninsula.", footprint: 370, user: User.first, category: ["Beach Escapes", "Mountain Gateaways", "Rural Retreats"] }
+  { title: "Bordeaux to Berlin", description: "Travel from Bordeaux to Berlin, passing through Paris, Brussels, and Amsterdam, exploring iconic landmarks, famous cuisine, and historical sites.", user: User.first, category: "Capital Cities" },
+  { title: "Bordeaux to Nice", description: "Journey from Bordeaux to Nice via Madrid and Barcelona, experiencing vibrant Spanish culture and the beauty of the French Riviera.", user: User.first, category: ["Beach Escapes", "Rural Retreats"] },
+  { title: "Bordeaux to Prague", description: "Begin in Bordeaux and travel through Geneva, Milan, Venice, and Vienna before reaching Prague, enjoying stunning architecture and rich history.", user: User.first, category: ["Capital Cities", "Mountain Gateaways", "Rural Retreats"] },
+  { title: "Bordeaux to Munich", description: "Start in Bordeaux, visit Lyon and Zurich, and conclude your trip in Munich, exploring culinary delights, lakeside views, and historic sites.", user: User.first, category: "Capital Cities" },
+  { title: "Bordeaux to Valencia", description: "Travel from Bordeaux to Valencia with stops in Lisbon, Seville, and Granada, experiencing the rich history and vibrant culture of the Iberian Peninsula.", user: User.first, category: ["Beach Escapes", "Mountain Gateaways", "Rural Retreats"] }
 ]
 
 trip_attributes.each do |trip_attribute|
@@ -47,13 +46,11 @@ bordeaux_to_nice = Trip.find_by(title: "Bordeaux to Nice")
 bordeaux_to_prague = Trip.find_by(title: "Bordeaux to Prague")
 bordeaux_to_munich = Trip.find_by(title: "Bordeaux to Munich")
 bordeaux_to_valencia = Trip.find_by(title: "Bordeaux to Valencia")
-#-----------------------------------------------
 
 Step.destroy_all
 puts "all steps were destroyed"
 
 step_attributes = [
-  # { title: " ", content: " ", duration: " ", order: " ", latitude: " ", longitude: " " },
   { title: "Bordeaux to Paris", content: "Travel from Bordeaux to the romantic city of Paris, explore iconic landmarks like the Eiffel Tower and Louvre Museum.", duration: 2, order: 0, latitude: 48.8566, longitude: 2.3522, trip: bordeaux_to_berlin },
   { title: "Paris to Brussels", content: "Continue your journey to Brussels, enjoy famous Belgian waffles and visit the Grand Place.", duration: 1 , order: 1, latitude: 50.8503, longitude: 4.3517, trip: bordeaux_to_berlin },
   { title: "Brussels to Amsterdam", content: "Head to Amsterdam, explore the beautiful canals and visit the Van Gogh Museum.", duration: 2 , order: 2, latitude: 52.3676, longitude: 4.9041, trip: bordeaux_to_berlin },
@@ -80,10 +77,7 @@ step_attributes.each do |step_attribute|
 end
 puts "#{Step.count} steps created"
 
-
 Trip.all.each do |trip|
   trip.set_total_distance_and_duration
+  trip.set_footprint
 end
-
-
-#-----------------------------------------------
