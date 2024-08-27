@@ -1,6 +1,9 @@
-<div class="row" id="bookmark-<%= bookmark.id %>">
+<div class="row" id="bookmark-id<%= bookmark.id %>">
   <div class="col-md-9 mb-3">
     <div class="card" style="max-width: 100%; padding-top: 20px;">
+        <%= button_to bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-light position-absolute top-0 end-0 m-2' do %>
+          <i class="fa-solid fa-trash"></i>
+        <% end %>
       <div class="row g-0 align-items-center">
         <div class="col-md-4">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkdJ0Q59oD10xc7i9DahM2C-FbboR6Iyqj7Q&s" class="img-fluid rounded-start" alt="Image 1" style="width: 100%; height: auto;">
@@ -11,11 +14,17 @@
         <div class="col-md-4">
           <div class="card-body">
             <h5 class="card-title"><%= link_to bookmark.trip.title, trip_path(bookmark.trip) %></h5>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente dolore voluptate magni similique, earum a maxime, nesciunt voluptatibus rem sunt neque enim quo, veniam accusantium dolores voluptates animi dicta. Autem.</p>
+            <p class="card-description"><%= link_to bookmark.trip.description, trip_path(bookmark.trip) %></p>
             <p class="card-text"><small class="text-muted">Status: <%= bookmark.status.capitalize %></small></p>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>>
+  <div class="col-md-3 d-flex align-items-center mb-3">
+    <div class="d-flex flex-column w-100">
+      <!-- Bouton Review -->
+      <%= link_to 'Review', bookmark_reviews_path(bookmark, status: :done), class: 'btn-general-blue w-100', data: { turbo_method: :patch } %>
+    </div>
+  </div>
+</div>

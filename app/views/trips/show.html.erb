@@ -1,3 +1,6 @@
+<% require "open-uri" %>
+<% require "nokogiri" %>
+
 <div class="margin-navbar"></div>
 
 <%# ---------SETUP--------- %>
@@ -6,7 +9,6 @@
 <% car = @trip.footprints.last.value.to_i %>
 <% car = @trip.footprints.last.value.to_i %>
 <%# ---------/SETUP--------- %>
-
 
 <div class="mx-5 mb-5">
   <div class="d-flex gap-3 align-items-center">
@@ -35,3 +37,4 @@
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
+

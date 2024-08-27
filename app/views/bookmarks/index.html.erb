@@ -4,14 +4,14 @@
     <div class="container">
       <div class="header-index my-5">
         <h1 class="mb-4 text-center">Bookmarks (My trips)</h1>
-        <h2 class="mb-3 text-center">Favorites</h2>
-        <p class="lead text-center">Don’t wait to book those trips</p>
       </div>
     </div>
+        <h2 class="mb-3 text-center">Favorites</h2>
+        <p class="lead text-center">Don’t wait to book those trips</p>
   </div>
 </div>
 
-<%= turbo_stream_from "to_do_bookmarks_#{current_user.id}" %>
+<%# <%= turbo_stream_from "to_do_bookmarks_#{current_user.id}" %>
 <div class="container">
   <!-- Section pour les bookmarks non terminés -->
     <% if @to_do_bookmarks.any? %>
@@ -27,10 +27,12 @@
     <% end %>
 </div>
 
-<%= turbo_stream_from "done_bookmarks_#{current_user.id}" %>
+<%# <%= turbo_stream_from "done_bookmarks_#{current_user.id}" %>
+<div class="mb-3 text-center">
+  <h2>Done Bookmarks</h2>
+</div>
 <div class="container mt-5">
   <% if @done_bookmarks.any? %>
-    <h2>Done Bookmarks</h2>
     <div class="row" id="done_bookmarks">
 
       <% @done_bookmarks.each do |bookmark| %>
