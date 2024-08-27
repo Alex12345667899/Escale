@@ -48,7 +48,7 @@
 }
 
 .cards-category-grid:hover > .card-category:not(:hover) .card-category-background {
-  filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
+  filter: brightness(0.5) contrast(1.2) blur(5px);
 }
 
 .card-category-content {

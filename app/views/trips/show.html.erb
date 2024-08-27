@@ -1,19 +1,8 @@
-<div class="margin-navbar"></div>
+<% require "open-uri" %>
+<% require "nokogiri" %>
 
-<% #----------------SETUP-------------- %>
-<%# trip_duration = 0 %>
-<%# trip_distance = 0 %>
-<%# @trip.steps.each_with_index do |step, index| %>
-  <%# trip_duration += step.duration %>
-  <%# if index > 0 %>
-    <%# previous_step = @trip.steps[index-1] %>
-    <%# step.distance = Geocoder::Calculations.distance_between([step.latitude, step.longitude], [previous_step.latitude, previous_step.longitude]) %>
-  <%# elsif index == 0 %>
-    <%# step.distance = 0 %>
-  <%# end %>
-  <%# trip_distance += step.distance %>
-<%# end %>
-<% #---------------/SETUP-------------- %>
+
+<div class="margin-navbar"></div>
 
 
 <h1 class="mx-5">
@@ -31,7 +20,6 @@
   </div>
 </h1>
 
-
 <% @trip.steps.each do |step| %>
   <% if step.order.even? %>
     <%= render 'left_step_card', step: step %>
@@ -44,40 +32,3 @@
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-
-<%# <div class="card-steps swiper-container" data-controller="card-swiper" data-card-swiper-target="cardsSteps">
-  <div class="card-steps__wrp swiper-wrapper">
-    <div class="card-steps__item swiper-slide">
-      <div class="card-steps__img">
-        <img src="https://images.pexels.com/photos/1670187/pexels-photo-1670187.jpeg?auto=compress&cs=tinysrgb&w=800">
-      </div>
-      <div class="card-steps__content">
-        <span class="card-steps__code">Country</span>
-        <h2>City / Step</h2>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?</p>
-      </div>
-    </div>
-    <div class="card-steps__item swiper-slide">
-      <div class="card-steps__img">
-        <img src="https://images.pexels.com/photos/1670187/pexels-photo-1670187.jpeg?auto=compress&cs=tinysrgb&w=800">
-      </div>
-      <div class="card-steps__content">
-        <span class="card-steps__code">Country</span>
-        <h2 class="card-steps__title">City / Step</h2>
-        <div class="card-steps__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?</div>
-      </div>
-    </div>
-    <div class="card-steps__item swiper-slide">
-      <div class="card-steps__img">
-        <img src="https://images.pexels.com/photos/1670187/pexels-photo-1670187.jpeg?auto=compress&cs=tinysrgb&w=800">
-      </div>
-      <div class="card-steps__content">
-        <span class="card-steps__code">Country</span>
-        <h2 class="card-steps__title">City / Step</h2>
-        <div class="card-steps__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?</div>
-      </div>
-    </div>
-  </div>
-  <div class="card-steps__pagination" data-card-swiper-target="cardStepsPagination"></div>
-</div> %>
