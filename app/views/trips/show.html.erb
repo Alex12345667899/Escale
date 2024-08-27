@@ -1,24 +1,16 @@
 <div class="margin-navbar"></div>
 
-<% #----------------SETUP-------------- %>
-<%# trip_duration = 0 %>
-<%# trip_distance = 0 %>
-<%# @trip.steps.each_with_index do |step, index| %>
-  <%# trip_duration += step.duration %>
-  <%# if index > 0 %>
-    <%# previous_step = @trip.steps[index-1] %>
-    <%# step.distance = Geocoder::Calculations.distance_between([step.latitude, step.longitude], [previous_step.latitude, previous_step.longitude]) %>
-  <%# elsif index == 0 %>
-    <%# step.distance = 0 %>
-  <%# end %>
-  <%# trip_distance += step.distance %>
-<%# end %>
-<% #---------------/SETUP-------------- %>
+<%# ---------SETUP--------- %>
+<% plane = @trip.footprints.first.value.to_i %>
+<% train = @trip.footprints.second.value.to_i %>
+<% car = @trip.footprints.last.value.to_i %>
+<% car = @trip.footprints.last.value.to_i %>
+<%# ---------/SETUP--------- %>
 
 
-<h1 class="mx-5">
-  <div class="d-flex gap-3 align-items-center mb-5">
-    <%= @trip.title %> <%= "(#{@trip.total_duration} days, #{@trip.total_distance} km)" %>
+<div class="mx-5 mb-5">
+  <div class="d-flex gap-3 align-items-center">
+    <h1 class=""><%= @trip.title.capitalize %> <%= "(#{@trip.total_duration} days, #{@trip.total_distance} km)" %></h1>
       <% if @user_trip_bookmark.present? && @user_trip_bookmark.to_do? %>
         <%#= link_to trip_bookmarks_path(trip_id: @trip.id), data: { turbo_method: :update } do %>
           <i class="fa-solid fa-bookmark"></i>
@@ -29,7 +21,8 @@
         <% end %>
       <% end %>
   </div>
-</h1>
+  <p class=""><%= "plane#{plane}, train#{train}, car#{car}" %></p>
+</div>
 
 
 <% @trip.steps.each do |step| %>

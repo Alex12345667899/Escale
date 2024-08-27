@@ -10,8 +10,8 @@
       </div>
       <div class="card-steps-right__content">
         <span class="card-steps-right__code">Step <%= step.order + 1 %></span>
-        <h3><%= step.title %></h3>
-        <p><%= step.content %></p>
+        <h3><%= step.title.capitalize %></h3>
+        <p><%= step.content.capitalize %></p>
         <p><i><%= "#{step.duration} days, #{step.distance} km" %></i></p>
       </div>
     </div>

@@ -41,6 +41,7 @@ class TripsController < ApplicationController
         step.save
       end
       @trip.set_total_distance_and_duration
+      @trip.set_footprint
       redirect_to trip_path(@trip)
     else
       render :new, status: :unprocessable_entity
