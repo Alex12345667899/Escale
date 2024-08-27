@@ -67,47 +67,67 @@
   scale: 1.1;
 }
 
-.bookmark-book-button {
+.btn-bookmark {
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 24px;
+  margin: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.025rem;
+  text-transform: uppercase;
+  color: black;
   background-color: $pink;
-  color: $white-grey;
-  border-radius: 10px;
-  padding: 16px 40px;
-  font-size: 20px;
-  border: 2px solid $pink;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin-bottom: 10px;
-
-  a {
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-  }
+  border: none;
+  text-decoration: none;
 }
 
-.bookmark-done-button {
-  background-color: $dark-blue;
-  color: $white-grey;
-  border-radius: 10px;
-  padding: 16px 40px;
-  font-size: 20px;
-  border: 2px solid $dark-blue;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin-bottom: 0;
-
-  a {
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-  }
+.btn-bookmark:hover {
+  scale: 1.1;
 }
+
+// .bookmark-book-button {
+//   background-color: $pink;
+//   color: $white-grey;
+//   border-radius: 10px;
+//   padding: 16px 40px;
+//   font-size: 20px;
+//   border: 2px solid $pink;
+//   width: 100%;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   text-align: center;
+//   margin-bottom: 10px;
+
+//   a {
+//     text-decoration: none;
+//     color: white;
+//     font-size: 20px;
+//   }
+// }
+
+// .bookmark-done-button {
+//   background-color: $dark-blue;
+//   color: $white-grey;
+//   border-radius: 10px;
+//   padding: 16px 40px;
+//   font-size: 20px;
+//   border: 2px solid $dark-blue;
+//   width: 100%;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   text-align: center;
+//   margin-bottom: 0;
+
+//   a {
+//     text-decoration: none;
+//     color: white;
+//     font-size: 20px;
+//   }
+// }
 
 .black {
   color: black;

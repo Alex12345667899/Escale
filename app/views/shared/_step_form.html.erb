@@ -1,9 +1,14 @@
 <div class="nested-form-wrapper" data-new-record="<%= f.object.new_record? %>">
-  <%= f.input :title, label: 'Step location', input_html: { data: { coordinates_target: "input" } } , as: :string %>
+
+  <%= f.input :title, label: 'Step location',
+    input_html: { data: { coordinates_target: "input", address_autocomplete_target: "address" }, class: "d-none" },
+    wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value:
+    ENV["MAPBOX_API_KEY"] } }, as: :string %>
+
   <%= f.input :content, label: 'Describe this step', as: :text %>
   <%= f.input :duration, label: 'Step duration in days', as: :integer %>
   <%= f.input :photo, as: :file %>
-  <button type="button" data-action="nested-form#remove">Remove step</button>
 
+  <button type="button" data-action="nested-form#remove">Remove step</button>
   <%= f.input :_destroy, as: :hidden %>
 </div>

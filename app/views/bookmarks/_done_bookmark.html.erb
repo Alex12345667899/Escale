@@ -1,30 +1,15 @@
 <div class="row" id="bookmark-id<%= bookmark.id %>">
-  <div class="col-md-9 mb-3">
-    <div class="card" style="max-width: 100%; padding-top: 20px;">
-        <%= button_to bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-light position-absolute top-0 end-0 m-2' do %>
-          <i class="fa-solid fa-trash"></i>
-        <% end %>
-      <div class="row g-0 align-items-center">
-        <div class="col-md-4">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkdJ0Q59oD10xc7i9DahM2C-FbboR6Iyqj7Q&s" class="img-fluid rounded-start" alt="Image 1" style="width: 100%; height: auto;">
-        </div>
-        <div class="col-md-4">
-          <img src="https://static.vecteezy.com/ti/photos-gratuite/p1/26790200-retro-van-dans-montagne-paysage-route-voyage-generatif-ai-photo.jpg" class="img-fluid rounded-end" alt="Image 2" style="width: 100%; height: auto;">
-        </div>
-        <div class="col-md-4">
-          <div class="card-body">
-            <h5 class="card-title"><%= link_to bookmark.trip.title, trip_path(bookmark.trip) %></h5>
-            <p class="card-description"><%= link_to bookmark.trip.description, trip_path(bookmark.trip) %></p>
-            <p class="card-text"><small class="text-muted">Status: <%= bookmark.status.capitalize %></small></p>
-          </div>
-        </div>
+  <div class="card-bookmark">
+    <img class="card-bookmark-background" src="https://plus.unsplash.com/premium_photo-1674716518188-e5763982eb59?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dHJhaW58ZW58MHx8MHx8fDA%3D">
+    <div class="card-bookmark-content">
+      <%= link_to bookmark_path(bookmark), class: 'btn btn-light position-absolute top-0 end-0 m-3', data: { turbo_method: :delete, turbo_confirm: "Are you sure ?" } do %>
+        <i class="fa-solid fa-trash"></i>
+      <% end %>
+      <h3><%= link_to bookmark.trip.title, trip_path(bookmark.trip), class: 'text-decoration-none' %></h3>
+      <p><%= bookmark.trip.description %></p>
+      <div class="justify-content-between">
+        <%= link_to 'Add a Review', bookmark_reviews_path(bookmark, status: :done), class: 'btn-bookmark', data: { turbo_method: :patch } %>
       </div>
-    </div>
-  </div>
-  <div class="col-md-3 d-flex align-items-center mb-3">
-    <div class="d-flex flex-column w-100">
-      <!-- Bouton Review -->
-      <%= link_to 'Review', bookmark_reviews_path(bookmark, status: :done), class: 'btn-general-blue w-100', data: { turbo_method: :patch } %>
     </div>
   </div>
 </div>

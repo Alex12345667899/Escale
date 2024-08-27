@@ -3,7 +3,8 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user = current_user
     if @review.save
-      redirect_to trip_path, success: 'Review was successfully created !'
+      flash[:success] = "Review was successfully created !"
+      redirect_to trip_path
     else
       render :new, status: :unprocessable_entity
     end
