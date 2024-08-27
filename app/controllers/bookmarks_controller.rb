@@ -22,13 +22,14 @@ class BookmarksController < ApplicationController
   def update
     @bookmark.status = params[:status]
     if @bookmark.save
-      respond_to do |format|
-        format.turbo_stream do
-          render turbo_stream: turbo_stream.append(:done_bookmarks, partial: "bookmarks/done_bookmark", locals: { bookmark: @bookmark })
-          # render turbo_stream: turbo_stream.remove(:to_do_bookmarks)
-        end
-        format.html { redirect_to bookmarks_path, notice: 'Bookmark status updated.' }
-      end
+      # respond_to do |format|
+      #   format.turbo_stream do
+      #     render turbo_stream: turbo_stream.append(:done_bookmarks, partial: "bookmarks/done_bookmark", locals: { bookmark: @bookmark })
+      #     render turbo_stream: turbo_stream.remove(:to_do_bookmarks)
+      #   end
+        # format.html { redirect_to bookmarks_path, notice: 'Bookmark status updated.' }
+      # end
+      redirect_to bookmarks_path, notice: 'Bookmark status updated.'
     else
       redirect_to bookmarks_path, alert: "Unable to update bookmark."
     end
