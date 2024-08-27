@@ -1,4 +1,4 @@
-.container {
+.container-card {
   align-items: flex-start;
   display: flex;
   min-height: 100%;
@@ -265,6 +265,18 @@
   }
 }
 
+.carousel-step {
+  background-color: #F2ABCB;
+  border-radius: 5px;
+
+}
+
+.img-show {
+  height: 250px;
+  width: 60%;
+  border-radius: 5px;
+}
+// .card-bookmark {
 .cards-bookmark-grid {
   display: grid;
   box-sizing: border-box;

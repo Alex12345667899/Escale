@@ -16,7 +16,7 @@
   <h2>Recommended Categories</h2>
 </div>
 
-<div class="container">
+<div class="container-card">
   <div class="cards-category-grid">
     <% @categories.each do |k, v| %>
       <%= link_to trips_path(category: k), class: "card-category" do %>
@@ -34,7 +34,7 @@
   <h2>Recently created</h2>
 </div>
 
-<div class="container">
+<div class="container-card">
   <div class="cards-index-grid">
     <% @trips.take(3).each do |trip| %>
       <%= link_to trip_path(trip), class: "card-index" do %>

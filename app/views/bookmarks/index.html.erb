@@ -7,7 +7,7 @@
 <div class="mt-2 mx-5">
   <h2>Trips to-do</h2>
 </div>
-<div class="container">
+<div class="container-card">
   <% if @to_do_bookmarks.any? %>
     <div class="row" id="to_do_bookmarks">
       <div class="cards-bookmark-grid">
@@ -21,10 +21,27 @@
   <% end %>
 </div>
 
-<div class="mt-2 mx-5">
-  <h2>Trips done</h2>
+<%# <%= turbo_stream_from "to_do_bookmarks_#{current_user.id}" %>
+<div class="container-card">
+  <!-- Section pour les bookmarks non terminés -->
+    <% if @to_do_bookmarks.any? %>
+      <div class="row" id="to_do_bookmarks">
+
+      <% @to_do_bookmarks.each do |bookmark| %>
+        <%= render partial: "to_do_bookmark", locals: { bookmark: bookmark } %>
+      <% end %>
+
+      </div>
+    <% else %>
+      <p>You have no bookmarks yet.</p>
+    <% end %>
 </div>
-<div class="container">
+
+<%# <%= turbo_stream_from "done_bookmarks_#{current_user.id}" %>
+<div class="mb-3 text-center">
+  <h2>Trips Done</h2>
+</div>
+<div class="container-card mt-5">
   <% if @done_bookmarks.any? %>
     <div class="row" id="done_bookmarks">
       <div class="cards-bookmark-grid">
