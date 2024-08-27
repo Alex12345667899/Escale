@@ -11,10 +11,12 @@
   <div class="d-flex gap-3 align-items-center">
     <h1><%= @trip.title.capitalize %> - <%= "#{@trip.total_duration} days, #{@trip.total_distance} km" %></h1>
     <% if @user_trip_bookmark.present? && @user_trip_bookmark.to_do? %>
-      <i class="fa-solid fa-bookmark"></i>
+      <%= link_to bookmark_path(@user_trip_bookmark), data: { turbo_method: :delete }, class: "btn btn-lg" do %>
+        <i class="fa-solid fa-bookmark fa-2x"></i>
+      <% end %>
     <% else %>
-      <%= button_to trip_bookmarks_path(trip_id: @trip.id), data: { turbo_method: :create } do %>
-        <i class="fa-regular fa-bookmark black"></i>
+      <%= link_to trip_bookmarks_path(trip_id: @trip.id, authenticity_token: form_authenticity_token), data: { turbo_method: :create }, class: "btn btn-lg" do %>
+        <i class="fa-regular fa-bookmark fa-2x black"></i>
       <% end %>
     <% end %>
   </div>

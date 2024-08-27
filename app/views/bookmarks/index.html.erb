@@ -1,14 +1,24 @@
 <div class="margin-navbar"></div>
+
+<div class="mt-2 mx-5 text-center">
+  <h1>My trips</h1>
+</div>
+
+<div class="mt-2 mx-5">
+  <h2>Trips to-do</h2>
+</div>
 <div class="container-card">
-  <div class="header-index">
-    <div class="container-card">
-      <div class="header-index my-5">
-        <h1 class="mb-4 text-center">Bookmarks (My trips)</h1>
+  <% if @to_do_bookmarks.any? %>
+    <div class="row" id="to_do_bookmarks">
+      <div class="cards-bookmark-grid">
+        <% @to_do_bookmarks.each do |bookmark| %>
+          <%= render partial: "to_do_bookmark", locals: { bookmark: bookmark } %>
+        <% end %>
       </div>
     </div>
-        <h2 class="mb-3 text-center">Favorites</h2>
-        <p class="lead text-center">Don’t wait to book those trips</p>
-  </div>
+  <% else %>
+    <p>You have no bookmarks yet.</p>
+  <% end %>
 </div>
 
 <%# <%= turbo_stream_from "to_do_bookmarks_#{current_user.id}" %>
@@ -29,17 +39,17 @@
 
 <%# <%= turbo_stream_from "done_bookmarks_#{current_user.id}" %>
 <div class="mb-3 text-center">
-  <h2>Done Bookmarks</h2>
+  <h2>Trips Done</h2>
 </div>
 <div class="container-card mt-5">
   <% if @done_bookmarks.any? %>
     <div class="row" id="done_bookmarks">
-
-      <% @done_bookmarks.each do |bookmark| %>
-        <%= render partial: "done_bookmark", locals: { bookmark: bookmark } %>
-      <% end %>
-
-    </div>
+      <div class="cards-bookmark-grid">
+        <% @done_bookmarks.each do |bookmark| %>
+          <%= render partial: "done_bookmark", locals: { bookmark: bookmark } %>
+        <% end %>
+      </div>
+      </div>
   <% else %>
     <p>No bookmarks marked as done yet.</p>
   <% end %>
