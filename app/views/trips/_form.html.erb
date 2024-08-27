@@ -7,7 +7,7 @@
   <%= f.input :title, label: 'Trip title' %>
   <%= f.input :description, label: 'Trip description' %>
   <%= f.input :category,
-              collection: ["Capital Cities", "Beach Escapes", "Mountain Gateaways", "Rural Retreats"],
+              collection: ["City Breaks", "Capitals Cities", "Beach Escapes", "Mountain Getaways", "Rural Retreats", "Adventure Tours", "Cultural Journeys", "Nature & Wildlife", "Food & Wine", "Family Vacations", "Romantic", "Winter Sports", "Backpacking Adventures", "Cycling Tours", "Spiritual", "Eco-Tourism"],
               as: :check_boxes,
               input_html: { class: "tag-selector" },
               item_wrapper_class: 'tag-item' %>
