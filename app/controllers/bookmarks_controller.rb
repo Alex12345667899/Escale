@@ -39,11 +39,15 @@ class BookmarksController < ApplicationController
      # redirect_to trip_path(@bookmark.trip), notice: "Bookmark removed."
    # else
       #render "trips/show", alert: "Unable to remove bookmark."
-    
+
     if @bookmark.user == current_user
       @bookmark.destroy
       flash[:notice] = "Trip removed"
-      redirect_to bookmarks_path
+      if params[:bookmark_id]
+        redirect_to bookmarks_path
+      else
+        redirect_to trip_path(@bookmark.trip)
+      end
     else
       flash[:alert] = "Unable to remove the trip"
       redirect_to bookmarks_path

@@ -1,10 +1,10 @@
 <div class="margin-navbar"></div>
 
 <%# ---------SETUP--------- %>
-<% plane = @trip.footprints.first.value.to_i %>
-<% train = @trip.footprints.second.value.to_i %>
-<% car = @trip.footprints.last.value.to_i %>
-<% car = @trip.footprints.last.value.to_i %>
+<%# plane = @trip.footprints.first.value.to_i %>
+<%# train = @trip.footprints.second.value.to_i %>
+<%# car = @trip.footprints.last.value.to_i %>
+<%# car = @trip.footprints.last.value.to_i %>
 <%# ---------/SETUP--------- %>
 
 <div class="mx-5 mb-5">
@@ -20,7 +20,7 @@
       <% end %>
     <% end %>
   </div>
-  <p class=""><%= "plane#{plane}, train#{train}, car#{car}" %></p>
+<!--  <p class=""><%#= "plane#{plane}, train#{train}, car#{car}" %></p>-->
 </div>
 
 <% @trip.steps.each do |step| %>
