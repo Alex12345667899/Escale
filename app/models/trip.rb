@@ -4,7 +4,7 @@ class Trip < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :categories
-  has_many :footprints
+  has_many :footprints, dependent: :destroy
 
   has_one_attached :photo
 
@@ -40,6 +40,7 @@ class Trip < ApplicationRecord
       self.total_distance += step.distance
     end
     self.save
+    puts "trip distance and duration are set"
   end
 
   def set_footprint
@@ -55,6 +56,7 @@ class Trip < ApplicationRecord
         transport = Transport.find_or_create_by(name: "Car")
       end
       Footprint.create(transport: transport, trip: self, value: element["value"].to_i)
+      puts "trip footprint is set"
     end
   end
 end

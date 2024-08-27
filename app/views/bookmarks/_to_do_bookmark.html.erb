@@ -1,0 +1,30 @@
+<div class="row" id="bookmark-<%= bookmark.id %>">
+  <div class="col-md-9 mb-3">
+    <div class="card" style="max-width: 100%; padding-top: 20px;">
+      <div class="row g-0 align-items-center">
+        <div class="col-md-4">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkdJ0Q59oD10xc7i9DahM2C-FbboR6Iyqj7Q&s" class="img-fluid rounded-start" alt="Image 1" style="width: 100%; height: auto;">
+        </div>
+        <div class="col-md-4">
+          <img src="https://static.vecteezy.com/ti/photos-gratuite/p1/26790200-retro-van-dans-montagne-paysage-route-voyage-generatif-ai-photo.jpg" class="img-fluid rounded-end" alt="Image 2" style="width: 100%; height: auto;">
+        </div>
+        <div class="col-md-4">
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to bookmark.trip.title, trip_path(bookmark.trip) %></h5>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente dolore voluptate magni similique, earum a maxime, nesciunt voluptatibus rem sunt neque enim quo, veniam accusantium dolores voluptates animi dicta. Autem.</p>
+            <p class="card-text"><small class="text-muted">Status: <%= bookmark.status.capitalize %></small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 d-flex align-items-center mb-3">
+    <div class="d-flex flex-column w-100">
+      <!-- Bouton Book -->
+      <%= button_to 'Book', trip_path(bookmark.trip), method: :get, class: 'bookmark-book-button w-100 mb-2' %>
+      <!-- Bouton Mark as Done -->
+      <%= button_to 'Mark as Done', bookmark_path(bookmark, status: :done), method: :patch, class: 'bookmark-done-button w-100', data: { turbo_frame: 'done_bookmarks' } %>
+    </div>
+  </div>
+</div>

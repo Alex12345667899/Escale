@@ -26,6 +26,23 @@
   color: white;
 }
 
+.navbar-button {
+  background-color: $pink;
+  color: $white-grey;
+  border-radius: 10px;
+  padding:12px;
+
+  a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+  }
+}
+
+.navbar-button:hover {
+  scale: 0.9;
+}
+
 .btn-social {
   background-color: black;
   color: $white-grey;
@@ -50,7 +67,7 @@
   scale: 1.1;
 }
 
-.bookmark-button {
+.bookmark-book-button {
   background-color: $pink;
   color: $white-grey;
   border-radius: 10px;
@@ -62,6 +79,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  margin-bottom: 10px;
 
   a {
     text-decoration: none;
@@ -82,6 +100,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  margin-bottom: 0;
 
   a {
     text-decoration: none;

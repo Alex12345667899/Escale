@@ -11,19 +11,16 @@
 <div class="mx-5 mb-5">
   <div class="d-flex gap-3 align-items-center">
     <h1 class=""><%= @trip.title.capitalize %> <%= "(#{@trip.total_duration} days, #{@trip.total_distance} km)" %></h1>
-      <% if @user_trip_bookmark.present? && @user_trip_bookmark.to_do? %>
-        <%#= link_to trip_bookmarks_path(trip_id: @trip.id), data: { turbo_method: :update } do %>
-          <i class="fa-solid fa-bookmark"></i>
-        <%# end %>
-      <% else %>
-        <%= button_to trip_bookmarks_path(trip_id: @trip.id), data: { turbo_method: :create } do %>
-          <i class="fa-regular fa-bookmark black"></i>
-        <% end %>
+    <% if @user_trip_bookmark.present? && @user_trip_bookmark.to_do? %>
+      <i class="fa-solid fa-bookmark"></i>
+    <% else %>
+      <%= button_to trip_bookmarks_path(trip_id: @trip.id), data: { turbo_method: :create } do %>
+        <i class="fa-regular fa-bookmark black"></i>
       <% end %>
+    <% end %>
   </div>
   <p class=""><%= "plane#{plane}, train#{train}, car#{car}" %></p>
 </div>
-
 
 <% @trip.steps.each do |step| %>
   <% if step.order.even? %>
@@ -36,41 +33,5 @@
 <div style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-
-<%# <div class="card-steps swiper-container" data-controller="card-swiper" data-card-swiper-target="cardsSteps">
-  <div class="card-steps__wrp swiper-wrapper">
-    <div class="card-steps__item swiper-slide">
-      <div class="card-steps__img">
-        <img src="https://images.pexels.com/photos/1670187/pexels-photo-1670187.jpeg?auto=compress&cs=tinysrgb&w=800">
-      </div>
-      <div class="card-steps__content">
-        <span class="card-steps__code">Country</span>
-        <h2>City / Step</h2>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?</p>
-      </div>
-    </div>
-    <div class="card-steps__item swiper-slide">
-      <div class="card-steps__img">
-        <img src="https://images.pexels.com/photos/1670187/pexels-photo-1670187.jpeg?auto=compress&cs=tinysrgb&w=800">
-      </div>
-      <div class="card-steps__content">
-        <span class="card-steps__code">Country</span>
-        <h2 class="card-steps__title">City / Step</h2>
-        <div class="card-steps__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?</div>
-      </div>
-    </div>
-    <div class="card-steps__item swiper-slide">
-      <div class="card-steps__img">
-        <img src="https://images.pexels.com/photos/1670187/pexels-photo-1670187.jpeg?auto=compress&cs=tinysrgb&w=800">
-      </div>
-      <div class="card-steps__content">
-        <span class="card-steps__code">Country</span>
-        <h2 class="card-steps__title">City / Step</h2>
-        <div class="card-steps__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?</div>
-      </div>
-    </div>
-  </div>
-  <div class="card-steps__pagination" data-card-swiper-target="cardStepsPagination"></div>
-</div> %>
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
