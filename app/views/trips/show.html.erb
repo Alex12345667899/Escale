@@ -20,6 +20,7 @@
       <% end %>
     <% end %>
   </div>
+  <p><%= @trip.description.capitalize %></p>
   <p>plane: <%= plane %>, train: <%= train %>, car: <%= car %></p>
 
   <%# ---------PDP Lucas--------- %>
@@ -40,7 +41,7 @@
           <% @trip.steps.each_with_index do |step, index| %>
             <div class="carousel-item <%= 'active' if index == 0 %>">
               <p class="mt-3"><b>Step <%= step.order + 1 %></b></p>
-              <h3><%= step.title.capitalize %></h3>
+              <h3><%= "#{step.title.split[0].capitalize} #{step.title.split[-1].capitalize}" %></h3>
               <% if step.photo.present? %>
                 <div class="position-absolute top-0 start-50">
                   <%= cl_image_tag step.photo.key %>
