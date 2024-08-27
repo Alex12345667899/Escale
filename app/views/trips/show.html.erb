@@ -1,18 +1,15 @@
-<% require "open-uri" %>
-<% require "nokogiri" %>
-
 <div class="margin-navbar"></div>
 
 <%# ---------SETUP--------- %>
 <% plane = @trip.footprints.first.value.to_i %>
 <% train = @trip.footprints.second.value.to_i %>
 <% car = @trip.footprints.last.value.to_i %>
-<% car = @trip.footprints.last.value.to_i %>
 <%# ---------/SETUP--------- %>
 
-<div class="mx-5 mb-5">
+<div class="container mb-5">
+  <%# ---------Titres, distance, temps, Co2--------- %>
   <div class="d-flex gap-3 align-items-center">
-    <h1 class=""><%= @trip.title.capitalize %> <%= "(#{@trip.total_duration} days, #{@trip.total_distance} km)" %></h1>
+    <h1><%= @trip.title.capitalize %> - <%= "#{@trip.total_duration} days, #{@trip.total_distance} km" %></h1>
     <% if @user_trip_bookmark.present? && @user_trip_bookmark.to_do? %>
       <i class="fa-solid fa-bookmark"></i>
     <% else %>
@@ -21,20 +18,63 @@
       <% end %>
     <% end %>
   </div>
-  <p class=""><%= "plane#{plane}, train#{train}, car#{car}" %></p>
+  <p>plane: <%= plane %>, train: <%= train %>, car: <%= car %></p>
+
+  <%# ---------PDP Lucas--------- %>
+  <div class="row align-items-stretch">
+    <div class="col-6">
+      <div
+        style="width: 100%; height: 500px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+      >
+      </div>
+    </div>
+
+    <div class="col-6 carousel-step">
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+          <% @trip.steps.each_with_index do |step, index| %>
+            <div class="carousel-item <%= 'active' if index == 0 %>">
+              <p class="mt-3"><b>Step <%= step.order + 1 %></b></p>
+              <h3><%= step.title.capitalize %></h3>
+              <% if step.photo.present? %>
+                <div class="position-absolute top-0 start-50">
+                  <%= cl_image_tag step.photo.key %>
+                </div>
+              <% else %>
+                <div>
+                  <img
+                    src="https://images.pexels.com/photos/1670187/pexels-photo-1670187.jpeg?auto=compress&cs=tinysrgb&w=800"
+                    class="img-show mb-3"
+                  >
+                </div>
+              <% end %>
+              <p><%= step.content.capitalize %></p>
+              <p><i><%= "#{step.duration} days, #{step.distance} km" %></i></p>
+            </div>
+          <% end %>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
-
-<% @trip.steps.each do |step| %>
-  <% if step.order.even? %>
-    <%= render 'left_step_card', step: step %>
-  <% else %>
-    <%= render 'right_step_card', step: step %>
-  <% end %>
-<% end %>
-
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
-

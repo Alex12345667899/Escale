@@ -1,7 +1,7 @@
 <div class="margin-navbar"></div>
-<div class="container">
+<div class="container-card">
   <div class="header-index">
-    <div class="container">
+    <div class="container-card">
       <div class="header-index my-5">
         <h1 class="mb-4 text-center">Bookmarks (My trips)</h1>
       </div>
@@ -12,7 +12,7 @@
 </div>
 
 <%# <%= turbo_stream_from "to_do_bookmarks_#{current_user.id}" %>
-<div class="container">
+<div class="container-card">
   <!-- Section pour les bookmarks non terminés -->
     <% if @to_do_bookmarks.any? %>
       <div class="row" id="to_do_bookmarks">
@@ -31,7 +31,7 @@
 <div class="mb-3 text-center">
   <h2>Done Bookmarks</h2>
 </div>
-<div class="container mt-5">
+<div class="container-card mt-5">
   <% if @done_bookmarks.any? %>
     <div class="row" id="done_bookmarks">
 
