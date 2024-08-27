@@ -13,18 +13,22 @@ class BookmarksController < ApplicationController
     @bookmark.user = current_user
     @bookmark.status = :to_do
     if @bookmark.save
-      redirect_to trip_path(@bookmark.trip), success: "Trip bookmarked !"
+      flash[:success] = "Trip bookmarked !"
+      redirect_to trip_path(@bookmark.trip)
     else
-      redirect_to trip_path(@bookmark.trip), alert: "Unable to bookmark trip"
+      flash[:alert] = "Unable to bookmark the trip"
+      redirect_to trip_path(@bookmark.trip)
     end
   end
 
   def update
     @bookmark.status = params[:status]
     if @bookmark.save
-      redirect_to bookmarks_path, notice: 'Bookmark status updated.'
+      flash[:success] = "Trip status updated !"
+      redirect_to bookmarks_path
     else
-      redirect_to bookmarks_path, alert: "Unable to update bookmark"
+      flash[:alert] = "Unable to update the trip"
+      redirect_to bookmarks_path
     end
   end
 
@@ -32,9 +36,11 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.find(params[:id])
     if @bookmark.user == current_user
       @bookmark.destroy
-      redirect_to trip_path(@bookmark.trip), notice: "Bookmark removed."
+      flash[:notice] = "Trip removed"
+      redirect_to bookmarks_path
     else
-      redirect_to trip_path(@bookmark.trip), alert: "Unable to remove bookmark."
+      flash[:alert] = "Unable to remove the trip"
+      redirect_to bookmarks_path
     end
   end
 
