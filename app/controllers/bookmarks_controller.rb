@@ -30,11 +30,10 @@ class BookmarksController < ApplicationController
 
   def destroy
     @bookmark = Bookmark.find(params[:id])
-    if @bookmark.user == current_user
-      @bookmark.destroy
+    if @bookmark.destroy
       redirect_to trip_path(@bookmark.trip), notice: "Bookmark removed."
     else
-      redirect_to trip_path(@bookmark.trip), alert: "Unable to remove bookmark."
+      render "trips/show", alert: "Unable to remove bookmark."
     end
   end
 
