@@ -13,9 +13,9 @@ class BookmarksController < ApplicationController
     @bookmark.user = current_user
     @bookmark.status = :to_do
     if @bookmark.save
-      redirect_to trip_path(@bookmark.trip), notice: "Trip bookmarked."
+      redirect_to trip_path(@bookmark.trip), success: "Trip bookmarked !"
     else
-      redirect_to trip_path(@bookmark.trip), alert: "Unable to bookmark trip."
+      redirect_to trip_path(@bookmark.trip), alert: "Unable to bookmark trip"
     end
   end
 
@@ -27,10 +27,10 @@ class BookmarksController < ApplicationController
           render turbo_stream: turbo_stream.append(:done_bookmarks, partial: "bookmarks/done_bookmark", locals: { bookmark: @bookmark })
           # render turbo_stream: turbo_stream.remove(:to_do_bookmarks)
         end
-        format.html { redirect_to bookmarks_path, notice: 'Bookmark status updated.' }
+        format.html { redirect_to bookmarks_path, success: 'Bookmark status updated !' }
       end
     else
-      redirect_to bookmarks_path, alert: "Unable to update bookmark."
+      redirect_to bookmarks_path, alert: "Unable to update bookmark"
     end
   end
 
