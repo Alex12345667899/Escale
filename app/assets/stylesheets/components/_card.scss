@@ -276,7 +276,7 @@
   width: 60%;
   border-radius: 5px;
 }
-// .card-bookmark {
+
 .cards-bookmark-grid {
   display: grid;
   box-sizing: border-box;
@@ -333,6 +333,65 @@
     padding: 1rem;
     max-width: 80%;
   }
+}
+
+.cards-reviews-grid {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 24px;
+  grid-row-gap: 24px;
+  max-width: 1200px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-review {
+  width: 300px;
+  padding: 10px;
+  margin: 1rem;
+  border-radius: 10px;
+  background-color: #243264;
+  border: 5px solid #F2ABCB;
+}
+
+.card-review-top-content {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-review-user-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card-review-user-content img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.card-review-top-content ul {
+  display: flex;
+  list-style: none;
+}
+
+.card-review-top-content ul li {
+  padding-left: 4px;
+}
+
+article p {
+  margin-bottom: 1rem;
 }
 
 // .cards-reviews-grid {
