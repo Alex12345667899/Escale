@@ -21,13 +21,10 @@
     <% end %>
   </div>
   <p><%= @trip.description.capitalize %></p>
-  <p> This trip saves <%=plane - train%> kg of CO₂ compared to air travel.</p>
-  <!--<p>CO₂ emissions by transportation mode: plane: <%#= plane %>kg, train: <%= train %>kg, car: <%= car %>kg</p>
--->
+<!--  <p>This trip saves <%#= plane - train %> kg of CO₂ compared to air travel.</p>-->
   <%# ---------PDP Lucas--------- %>
   <div class="row align-items-stretch">
     <div class="col-6">
-
       <div
         style="width: 100%; height: 500px; position"
         data-controller="map"
@@ -35,26 +32,24 @@
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
         class="rounded"
       >
-      <div class="badge-pill">
-        <%=plane - train%> kg CO₂ avoided
-      </div>
+        <div class="badge-pill">
+          <%= plane - train %> kg CO₂ avoided
+        </div>
       </div>
     </div>
 
-
-<div class="col-6 carousel-step">
+    <div class="col-6 carousel-step">
       <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner mt-3">
           <% @trip.steps.each_with_index do |step, index| %>
             <div class="carousel-item <%= 'active' if index == 0 %>">
               <p class="mt-1 text-secondary text-center"><b>Step <%= step.order + 1 %></b></p>
-              <!--<p class="mt-1 text-secondary text-center">  </p>-->
-               <h3 class="text-center"><%= "#{step.title.split[0].capitalize} #{step.title.split[-1].capitalize}" %></h3>
-                <% if step.photo.present? %>
-                  <div class=" d-flex justify-content-center mt-3 mb-3">
-                    <%= cl_image_tag step.photo.key, class: "img-show" %>
-                  </div>
-                <% else %>
+              <h3 class="text-center"><%= "#{step.title.split[0].capitalize} #{step.title.split[-1].capitalize}" %></h3>
+              <% if step.photo.present? %>
+                <div class="d-flex justify-content-center mt-3 mb-3">
+                  <%= cl_image_tag step.photo.key, class: "img-show" %>
+                </div>
+              <% else %>
                 <div class="d-flex justify-content-center mt-3 mb-3">
                   <img
                     src="https://images.pexels.com/photos/1670187/pexels-photo-1670187.jpeg?auto=compress&cs=tinysrgb&w=800"
@@ -63,30 +58,26 @@
                 </div>
               <% end %>
               <div class="carousel-desc">
-              <h5>Description</h5>
-              <p class="text-wrap"><%= step.content.capitalize %></p>
-              <p><%= "⏱️ #{step.duration} days 📍 #{step.distance} km" %></p>
+                <h5>Description</h5>
+                <p class="text-wrap"><%= step.content.capitalize %></p>
+                <p><%= "⏱️ #{step.duration} days 📍 #{step.distance} km" %></p>
               </div>
-
-
             </div>
           <% end %>
         </div>
 
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#243264" class="bi bi-chevron-left" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
-</svg>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#243264" class="bi bi-chevron-right" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
-</svg>
-            <span class="visually-hidden">Next</span>
-          </button>
-
-        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#243264" class="bi bi-chevron-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+          </svg>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#243264" class="bi bi-chevron-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+          </svg>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
     </div>
   </div>
