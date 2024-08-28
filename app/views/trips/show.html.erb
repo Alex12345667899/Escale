@@ -21,7 +21,9 @@
     <% end %>
   </div>
   <p><%= @trip.description.capitalize %></p>
+
 <!--  <p>This trip saves <%#= plane - train %> kg of CO₂ compared to air travel.</p>-->
+
   <%# ---------PDP Lucas--------- %>
   <div class="row align-items-stretch">
     <div class="col-6">
@@ -43,8 +45,10 @@
         <div class="carousel-inner mt-3">
           <% @trip.steps.sort_by(&:order).each_with_index do |step, index| %>
             <div class="carousel-item <%= 'active' if index == 0 %>">
+
               <p class="mt-1 text-secondary text-center"><b>Step <%= step.order + 1 %></b></p>
               <h3 class="text-center"><%= "#{step.title.capitalize}" %></h3>
+
               <% if step.photo.present? %>
                 <div class="d-flex justify-content-center mt-3 mb-3">
                   <%= cl_image_tag step.photo.key, class: "img-show" %>
@@ -73,10 +77,12 @@
           </svg>
           <span class="visually-hidden">Previous</span>
         </button>
+
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#243264" class="bi bi-chevron-right" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
           </svg>
+
           <span class="visually-hidden">Next</span>
         </button>
       </div>
@@ -85,24 +91,24 @@
 </div>
 
 <div class="cards-reviews-grid">
-  <div class="card-review">
-    <div class="card-review-top-content">
-      <div class="card-review-user-content">
-        <img src="https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fG1hbnxlbnwwfHwwfHx8MA%3D%3D">
-      </div>
-      <ul>
-        <li><i class="fa-solid fa-star"></i></li>
-        <li><i class="fa-solid fa-star"></i></li>
-        <li><i class="fa-solid fa-star"></i></li>
-        <li><i class="fa-regular fa-star"></i></li>
-        <li><i class="fa-regular fa-star"></i></li>
-      </ul>
+  <% @reviews.each do |review| %>
+    <div class="card-review">
+        <div class="card-review-top-content">
+          <div class="card-review-user-content">
+            <%= image_tag current_user.picture, class: "card-review-user-picture" %>
+
+          </div>
+          <ul>
+            <li><i class="fa-solid fa-star"></i></li>
+            <li><i class="fa-solid fa-star"></i></li>
+            <li><i class="fa-solid fa-star"></i></li>
+            <li><i class="fa-regular fa-star"></i></li>
+            <li><i class="fa-regular fa-star"></i></li>
+          </ul>
+        </div>
+        <article>
+          <p><%= review.content %></p>
+        </article>
     </div>
-    <article>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit beatae ipsa
-        voluptatibus perferendis quos eaque nemo error tempora harum quas, laudantium tenetur, neque,
-        facere exercitationem!</p>
-      <p>Jan 01, 2023</p>
-    </article>
-  </div>
+  <% end %>
 </div>

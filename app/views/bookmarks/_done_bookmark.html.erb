@@ -8,7 +8,7 @@
       <h3><%= link_to bookmark.trip.title, trip_path(bookmark.trip), class: 'text-decoration-none' %></h3>
       <p><%= bookmark.trip.description %></p>
       <div class="justify-content-between">
-        <%= link_to 'Add a Review', bookmark_reviews_path(bookmark, status: :done), class: 'btn-bookmark', data: { turbo_method: :patch } %>
+        <%= link_to 'Add a Review', new_bookmark_review_path(bookmark, status: :done), class: 'btn-bookmark' %>
       </div>
     </div>
   </div>
