@@ -96,11 +96,11 @@ Review.destroy_all
 puts "All reviews were destroyed"
 
 review_attributes = [
-  { rating: 4, content: "A truly remarkable journey! Each city offers its unique charm, from Paris's romantic ambiance to Berlin's vibrant culture. A must for history buffs and food lovers alike." },
-  { rating: 5, content: "The perfect blend of Spanish zest and French elegance. Madrid and Barcelona are bursting with energy, while the French Riviera is simply stunning. Highly recommended!" },
-  { rating: 4, content: "An enchanting trip through Europe's architectural gems. Venice and Vienna were absolute highlights, and Prague is the perfect finale with its fairy-tale setting." },
-  { rating: 4, content: "A delightful adventure filled with culinary delights and breathtaking scenery. Zurich's lakeside views were unforgettable, and Munich’s historical sites were fascinating." },
-  { rating: 5, content: "A vibrant cultural experience! Lisbon and Seville's rich histories were captivating, and Valencia’s blend of modernity and tradition was a perfect end to the trip." }
+  { rating: 4, content: "A truly remarkable journey! Each city offers its unique charm, from Paris's romantic ambiance to Berlin's vibrant culture. A must for history buffs and food lovers alike.", user: User.first, trip: bordeaux_to_nice },
+  { rating: 5, content: "The perfect blend of Spanish zest and French elegance. Madrid and Barcelona are bursting with energy, while the French Riviera is simply stunning. Highly recommended!", user: User.first, trip: bordeaux_to_berlin },
+  { rating: 4, content: "An enchanting trip through Europe's architectural gems. Venice and Vienna were absolute highlights, and Prague is the perfect finale with its fairy-tale setting.", user: User.first, trip: bordeaux_to_nice },
+  { rating: 4, content: "A delightful adventure filled with culinary delights and breathtaking scenery. Zurich's lakeside views were unforgettable, and Munich’s historical sites were fascinating.", user: User.first, trip: bordeaux_to_nice },
+  { rating: 5, content: "A vibrant cultural experience! Lisbon and Seville's rich histories were captivating, and Valencia’s blend of modernity and tradition was a perfect end to the trip.", user: User.first, trip: bordeaux_to_berlin }
 ]
 
 review_attributes.each do |review_attribute|
