@@ -7,10 +7,10 @@ class TripsController < ApplicationController
       @trips = Trip.search_by_title_and_description(params[:search][:query])
     elsif params[:category].present?
       @trips = Trip.where('category LIKE ?', "%#{params[:category]}%")
-    elsif params[:total_distance].present?
-      @trips = Trip.where('category LIKE ?', "%#{params[:total_distance]}%")
-    elsif params[:total_duration].present?
-      @trips = Trip.where('category LIKE ?', "%#{params[:total_duration]}%")
+    elsif params[:trip] && params[:trip][:total_distance].present?
+      @trips = Trip.where('total_distance <= ?', "#{params[:trip][:total_distance]}")
+    elsif params[:trip] && params[:trip][:total_duration].present?
+      @trips = Trip.where('total_duration <= ?', "#{params[:trip][:total_duration]}")
     end
   end
 
