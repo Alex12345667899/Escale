@@ -11,9 +11,9 @@
               as: :check_boxes,
               input_html: { class: "tag-selector" },
               item_wrapper_class: 'tag-item' %>
-  <%= f.input :photo, as: :file %>
+  <%= f.input :photo, label: 'Add trip picture', as: :file %>
 
-  <div class="m-3">
+  <div class="m-3 myinnerborder">
     <div class="m-3">
         <!-- Template for new records -->
         <template data-nested-form-target="template">
@@ -33,6 +33,6 @@
   </div>
 
   <div class="text-center" >
-    <%= f.button :submit, "Save the complete trip", class: "bookmark-done-button" %>
+    <%= f.button :submit, "Submit trip", class: "formsubmit" %>
   </div>
 <% end %>
