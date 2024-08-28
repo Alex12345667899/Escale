@@ -12,42 +12,44 @@
   <% end %>
 </div>
 
-<div class="mt-5 mx-5">
-  <h2>Recommended Categories</h2>
-</div>
-
-<div class="container-card">
-  <div class="cards-category-grid">
-    <% @categories.each do |k, v| %>
-      <%= link_to trips_path(category: k), class: "card-category" do %>
-        <img class="card-category-background" src=<%= v %>>
-        <div class="card-category-content">
-          <p>Category</p>
-          <h3><%= k %></h3>
-        </div>
-      <% end %>
-    <% end %>
+<div class="container-show-trip">
+  <div class="mt-5 mb-4 mx-5">
+    <h2>Recommended Categories</h2>
   </div>
-</div>
 
-<div class="mt-2 mx-5">
-  <h2>Recently created</h2>
-</div>
-
-<div class="container-card">
-  <div class="cards-index-grid">
-    <% @trips.take(3).each do |trip| %>
-      <%= link_to trip_path(trip), class: "card-index" do %>
-        <% if trip.photo.present? %>
-          <%= cl_image_tag trip.photo.key, class: "card-index-background" %>
-        <% else %>
-          <img class="card-index-background" src="https://plus.unsplash.com/premium_photo-1674716518188-e5763982eb59?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dHJhaW58ZW58MHx8MHx8fDA%3D">
+  <div class="container-card">
+    <div class="cards-category-grid">
+      <% @categories.each do |k, v| %>
+        <%= link_to trips_path(category: k), class: "card-category" do %>
+          <img class="card-category-background" src=<%= v %>>
+          <div class="card-category-content">
+            <p>Category</p>
+            <h3><%= k %></h3>
+          </div>
         <% end %>
-        <div class="card-index-content">
-          <p>Trip</p>
-          <h3><%= trip.title %></h3>
-        </div>
       <% end %>
-    <% end %>
+    </div>
+  </div>
+
+  <div class="mt-2 mb-4 mx-5">
+    <h2>Recently created</h2>
+  </div>
+
+  <div class="container-card">
+    <div class="cards-index-grid">
+      <% @trips.last(3).reverse.each do |trip| %>
+        <%= link_to trip_path(trip), class: "card-index" do %>
+          <% if trip.photo.present? %>
+            <%= cl_image_tag trip.photo.key, class: "card-index-background" %>
+          <% else %>
+            <img class="card-index-background" src="https://plus.unsplash.com/premium_photo-1674716518188-e5763982eb59?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dHJhaW58ZW58MHx8MHx8fDA%3D">
+          <% end %>
+          <div class="card-index-content">
+            <p>Trip</p>
+            <h3><%= trip.title %></h3>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

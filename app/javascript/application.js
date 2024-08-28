@@ -5,3 +5,6 @@ import "@popperjs/core"
 import "bootstrap"
 import "controllers/hide_navbar_scroll"
 import "controllers/map_controller"
+import "controllers/reviews_form"
+import "controllers/days_slider"
+
