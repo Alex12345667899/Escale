@@ -10,40 +10,59 @@ class TrainlineApi
   def call
     options = Selenium::WebDriver::Options.chrome(args: ['--headless=new'])
     driver = Selenium::WebDriver.for :chrome, options: options
-
     begin
       driver.navigate.to "https://www.thetrainline.com"
       sleep(2)
 
-      # Locate and fill in the departure station
+      # initial_url = driver.current_url
+
       departure_field = driver.find_element(id: 'jsf-origin-input')
       departure_field.send_keys(@departure)
-
-      # Locate and fill in the arrival station : arrival_field = driver.find_element(id: 'to.search')
       arrival_field = driver.find_element(id: 'jsf-destination-input')
       arrival_field.send_keys(@arrival)
-
+      # arrival_field.attribute("value")
       # Locate and click on the date field
-      date_field = driver.find_element(id: 'jsf-outbound-time-input-toggle')
-      date_field.click
-
+      # date_field = driver.find_element(id: 'jsf-outbound-time-input-toggle')
+      # driver.action.click(date_field)
+      sleep(1)
       # Select a date (assuming the date picker is open) : This will click on today’s date; you might need to adjust the selector for a specific date
-      date_picker_today = driver.find_element(css: 'td[data-id="2024-09-20"]')
-      date_picker_today.click
+      # date_picker_today = driver.find_element(css: 'td[data-id="2024-09-20"]')
+      # date_picker_today.click
+
+      # date_next_month = driver.find_element(css: '[data-testid="calendar-navigate-to-next-month"]')
+      # driver.action.click(date_next_month)
+
+      # date_next_month = driver.find_element(css: '.style-module__root__Gv_h8.style-module__large__mXyOn.style-module__contained__QrPWk.Calendar-module__calendarButton__yD2T9')
+      # date_departure_day = driver.find_element(css: '[data-testid="jsf-calendar-date-button-31"]')
+      # driver.action.click(date_departure_day)
+
+      # date_arrival_field = driver.find_element(id: 'jsf-inbound-time-input-toggle')
+      # date_arrival_field.click
+      # sleep(1)
+      # date_next_month = driver.find_element(id: 'calendar-navigate-to-next-month')
+      # date_next_month.click
+      # date_departure_day = driver.find_element(id: 'jsf-calendar-date-button-20')
+      # date_departure_day.click
 
       # décocher le "rechercher un logement"
-      search_button = driver.find_element(id: 'bookingPromo')
-      search_button.click
+      skip_booking = driver.find_element(id: 'bookingPromo')
+      driver.action.click(skip_booking)
 
-      # Submit the search : search_button = driver.find_element(css: 'button[aria-label="Search"]')
-      search_button = driver.find_element(id: 'jsf-submit')
-      search_button.click
+      submit = driver.find_element(css: '[data-testid="jsf-submit"]')
+      submit.submit()
+      sleep(2)
+      # wait = Selenium::WebDriver::Wait.new(timeout: 10)
+      # wait.until { driver.current_url != initial_url }
+      result_url = driver.current_url
+      puts "Result page URL: #{result_url}"
 
-      sleep(5)
-      # Capture some result data
-      results = driver.find_elements(css: '.results-summary')
+      results = driver.find_elements(css: '[data-test="eu-journey-row-0-wrapper"]')
+      p results
+      debugger
       results.each do |result|
         puts result.text
+        p result
+        debugger
       end
     rescue StandardError => e
       puts "An error occurred: #{e.message}"
@@ -53,19 +72,6 @@ class TrainlineApi
     end
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # # base.include HTTParty
 # # base.base_uri "https://www.thetrainline.com"
