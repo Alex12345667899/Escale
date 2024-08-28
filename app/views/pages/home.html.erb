@@ -36,7 +36,7 @@
 
 <div class="container-card">
   <div class="cards-index-grid">
-    <% @trips.take(3).each do |trip| %>
+    <% @trips.last(3).reverse.each do |trip| %>
       <%= link_to trip_path(trip), class: "card-index" do %>
         <% if trip.photo.present? %>
           <%= cl_image_tag trip.photo.key, class: "card-index-background" %>
