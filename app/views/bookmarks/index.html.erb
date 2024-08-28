@@ -4,50 +4,52 @@
   <h1>My trips</h1>
 </div>
 
-<div class="mt-2 mx-5">
-  <h2>Trips to-do</h2>
-</div>
-<div class="container-card">
-  <% if @to_do_bookmarks.any? %>
-    <div class="row" id="to_do_bookmarks">
-      <div class="cards-bookmark-grid">
-        <% @to_do_bookmarks.each do |bookmark| %>
-          <%= render partial: "to_do_bookmark", locals: { bookmark: bookmark } %>
-        <% end %>
-      </div>
-    </div>
-  <% else %>
-    <p>You have no bookmarks yet.</p>
-  <% end %>
-</div>
-
-<div class="container-card">
+<div class="container-show-trip">
+  <div class="mt-2 mx-5">
+    <h2>Trips to-do</h2>
+  </div>
+  <div class="container-card">
     <% if @to_do_bookmarks.any? %>
       <div class="row" id="to_do_bookmarks">
-
-      <% @to_do_bookmarks.each do |bookmark| %>
-        <%= render partial: "to_do_bookmark", locals: { bookmark: bookmark } %>
-      <% end %>
-
+        <div class="cards-bookmark-grid">
+          <% @to_do_bookmarks.each do |bookmark| %>
+            <%= render partial: "to_do_bookmark", locals: { bookmark: bookmark } %>
+          <% end %>
+        </div>
       </div>
     <% else %>
       <p>You have no bookmarks yet.</p>
     <% end %>
-</div>
+  </div>
 
-<div class="mb-3 text-center">
-  <h2>Trips Done</h2>
-</div>
-<div class="container-card mt-5">
-  <% if @done_bookmarks.any? %>
-    <div class="row" id="done_bookmarks">
-      <div class="cards-bookmark-grid">
-        <% @done_bookmarks.each do |bookmark| %>
-          <%= render partial: "done_bookmark", locals: { bookmark: bookmark } %>
-        <% end %>
-      </div>
-      </div>
-  <% else %>
-    <p>No bookmarks marked as done yet.</p>
-  <% end %>
+          <!--<div class="container-card">-->
+          <%# if @to_do_bookmarks.any? %>
+          <!--      <div class="row" id="to_do_bookmarks">
+
+            <%# @to_do_bookmarks.each do |bookmark| %>-->
+              <%#= render partial: "to_do_bookmark", locals: { bookmark: bookmark } %>
+            <%# end %>
+          <!--
+            </div>
+          <%# else %>-->
+          <!--      <p>You have no bookmarks yet.</p>-->
+          <%# end %>
+          <!--</div>-->
+
+  <div class="mt-2 mx-5">
+    <h2>Trips Done</h2>
+  </div>
+  <div class="container-card mt-5">
+    <% if @done_bookmarks.any? %>
+      <div class="row" id="done_bookmarks">
+        <div class="cards-bookmark-grid">
+          <% @done_bookmarks.each do |bookmark| %>
+            <%= render partial: "done_bookmark", locals: { bookmark: bookmark } %>
+          <% end %>
+        </div>
+        </div>
+    <% else %>
+      <p>No bookmarks marked as done yet.</p>
+    <% end %>
+  </div>
 </div>
