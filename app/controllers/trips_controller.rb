@@ -16,6 +16,7 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+    @reviews = @trip.reviews
     @user_trip_bookmark = Bookmark.find_by(user: current_user, trip: @trip)
     @markers = @trip.steps.map do |step|
       {
@@ -24,6 +25,7 @@ class TripsController < ApplicationController
         marker_html: render_to_string(partial: "marker")
       }
     end
+    # raise
   end
 
   def trains

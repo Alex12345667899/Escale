@@ -1,5 +1,6 @@
 <div class="margin-navbar"></div>
 
+
 <h2 class="text-center">Find your avdenture</h2>
 
 <div class="container-search">
@@ -55,7 +56,15 @@
 <div class="container-card">
   <div class="cards-index-grid">
     <% @trips.each do |trip| %>
+    <%# ---------SETUP--------- %>
+    <% plane = trip.footprints.first.value.to_i %>
+    <% train = trip.footprints.second.value.to_i %>
+    <% car = trip.footprints.last.value.to_i %>
+    <%# ---------/SETUP--------- %>
       <%= link_to trip_path(trip), class: "card-index" do %>
+       <div class="badge-pill-index">
+          <%= plane - train %> kg CO₂ avoided
+        </div>
         <% if trip.photo.present? %>
           <%= cl_image_tag trip.photo.key, class: "card-index-background" %>
         <% else %>

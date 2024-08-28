@@ -315,7 +315,21 @@
   border-radius: 12px;
   font-size: 12px;
   font-weight: bold;
-  z-index: 1000;
+  z-index: 1;
+}
+
+.badge-pill-index {
+  background-image: url(badge.png);
+  position: absolute;
+  top: 30px;
+  left: 225px;
+  background-color: #CCEAC4;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 1;
 }
 
 .cards-bookmark-grid {
@@ -416,6 +430,7 @@
 }
 
 .card-review-user-content img {
+
   width: 48px;
   height: 48px;
   border-radius: 50%;
