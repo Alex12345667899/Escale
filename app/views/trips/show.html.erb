@@ -20,6 +20,7 @@
       <% end %>
     <% end %>
   </div>
+  <p><%= @trip.description.capitalize %></p>
   <p>plane: <%= plane %>, train: <%= train %>, car: <%= car %></p>
 
   <%# ---------PDP Lucas--------- %>
@@ -40,7 +41,7 @@
           <% @trip.steps.each_with_index do |step, index| %>
             <div class="carousel-item <%= 'active' if index == 0 %>">
               <p class="mt-3"><b>Step <%= step.order + 1 %></b></p>
-              <h3><%= step.title.capitalize %></h3>
+              <h3><%= "#{step.title.split[0].capitalize} #{step.title.split[-1].capitalize}" %></h3>
               <% if step.photo.present? %>
                 <div class="position-absolute top-0 start-50">
                   <%= cl_image_tag step.photo.key %>
@@ -71,12 +72,34 @@
           class="carousel-control-next"
           type="button"
           data-bs-target="#carouselExample"
-          data-bs-slide="next"
-        >
+          data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
       </div>
     </div>
   </div>
+</div>
+
+<div class="cards-reviews-grid">
+  <% @reviews.each do |review| %>
+    <div class="card-review">
+        <div class="card-review-top-content">
+          <div class="card-review-user-content">
+            <%= image_tag current_user.picture, class: "card-review-user-picture" %>
+
+          </div>
+          <ul>
+            <li><i class="fa-solid fa-star"></i></li>
+            <li><i class="fa-solid fa-star"></i></li>
+            <li><i class="fa-solid fa-star"></i></li>
+            <li><i class="fa-regular fa-star"></i></li>
+            <li><i class="fa-regular fa-star"></i></li>
+          </ul>
+        </div>
+        <article>
+          <p><%= review.content %></p>
+        </article>
+    </div>
+  <% end %>
 </div>
