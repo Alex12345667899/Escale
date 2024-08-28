@@ -21,9 +21,7 @@
   <% end %>
 </div>
 
-<%# <%= turbo_stream_from "to_do_bookmarks_#{current_user.id}" %>
 <div class="container-card">
-  <!-- Section pour les bookmarks non terminés -->
     <% if @to_do_bookmarks.any? %>
       <div class="row" id="to_do_bookmarks">
 
@@ -37,7 +35,6 @@
     <% end %>
 </div>
 
-<%# <%= turbo_stream_from "done_bookmarks_#{current_user.id}" %>
 <div class="mb-3 text-center">
   <h2>Trips Done</h2>
 </div>

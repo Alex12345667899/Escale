@@ -1,12 +1,3 @@
-.container-card {
-  align-items: flex-start;
-  display: flex;
-  min-height: 100%;
-  justify-content: center;
-  padding: 40px 24px;
-  box-sizing: border-box;
-}
-
 .cards-category-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -265,18 +256,67 @@
   }
 }
 
+// Carousel:
+
 .carousel-step {
-  background-color: #F2ABCB;
+  background-color: rgba(242, 171, 203, 0.5);
   border-radius: 5px;
 
 }
 
 .img-show {
-  height: 250px;
-  width: 60%;
+  height: 200px;
+  width: 100%;
   border-radius: 5px;
+  object-fit: cover;
 }
-// .card-bookmark {
+
+.margin-carousel {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  align-items: flex-start;
+}
+
+.carousel-control-next-icon {
+  background-image: url("/app/assets/images/right_arrow.png style='width: 32px; height: 32px;' viewBox='0 0 16 16' fill='#0d0925'/%3e%3c/svg%3e");
+}
+
+.carousel-desc {
+  width: 95%;
+  margin: auto;
+}
+
+.badge-pill {
+  background-image: url(badge.png);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #CCEAC4;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.badge-pill-index {
+  background-image: url(badge.png);
+  position: absolute;
+  top: 30px;
+  left: 225px;
+  background-color: #CCEAC4;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 1;
+}
+
 .cards-bookmark-grid {
   display: grid;
   box-sizing: border-box;
@@ -374,7 +414,8 @@
   align-items: center;
 }
 
-.card-review-user-picture {
+.card-review-user-content img {
+
   width: 48px;
   height: 48px;
   border-radius: 50%;
