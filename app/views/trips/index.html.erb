@@ -20,7 +20,7 @@
   </div>
 
   <div class="dropdown">
-    <button class="btn-general-pink dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="btn-middle-pink dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       Categories
     </button>
     <ul class="dropdown-menu">
@@ -31,7 +31,7 @@
     </ul>
   </div>
   <div class="dropdown">
-    <button class="btn-general-pink dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="btn-middle-pink dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       Days
     </button>
     <ul class="dropdown-menu">
@@ -49,7 +49,7 @@
     </button>
     <ul class="dropdown-menu">
       <li>
-        <%= simple_form_for Trip.new, url: trips_path, method: :get, html:{class: "index-slider distance-slider"} do |f| %>
+        <%= simple_form_for Trip.new, url: trips_path, method: :get, html:{class: "index-slider"} do |f| %>
           <%= f.input :total_distance, as: :range, input_html: { min: 0, max: 1500, data: { controller: "filter", action: "input->filter#updateValue" } }, label: false %>
           <%= f.button :submit, "See results", class: "btn-general-pink btn-submit" %>
         <% end %>

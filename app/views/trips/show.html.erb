@@ -90,10 +90,11 @@
       </div>
     </div>
   </div>
-
-  <div class="mt-5 mb-4">
-    <h2>Reviews</h2>
-  </div>
+  <% if @reviews.present? %>
+    <div class="mt-5 mb-4">
+      <h2>Reviews ( <%= @reviews.count %> )</h2>
+    </div>
+  <% end %>
 
   <div class="cards-reviews-grid">
     <% @reviews.each do |review| %>

@@ -39,7 +39,9 @@
 }
 
 .cards-category-grid:hover > .card-category:not(:hover) .card-category-background {
-  filter: brightness(0.5) contrast(1.2) blur(5px);
+  -webkit-filter: brightness(0.5) contrast(1.2) blur(5px);
+  filter: none;
+  transition: -webkit-filter 1s ease, filter ease 1s;
 }
 
 .card-category-content {
@@ -224,7 +226,7 @@
   place-items: center;
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 24px;
-  padding: 24px;
+  padding: 16px;
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
