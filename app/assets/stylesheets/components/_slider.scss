@@ -15,6 +15,13 @@
     cursor: pointer;
   }
 
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 50%;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;  /* supprimé définie sur l'input */
+  }
+
   input[type="range"] {
     position: relative;
     -webkit-appearance: none;

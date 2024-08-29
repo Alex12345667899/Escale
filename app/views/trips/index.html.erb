@@ -32,7 +32,7 @@
     <ul class="dropdown-menu">
       <li>
         <%= simple_form_for Trip.new, url: trips_path, method: :get, html:{class: "index-slider"} do |f| %>
-          <%= f.input :total_duration, as: :range, input_html: { min: 0, max: 30 }, label: false %>
+          <%= f.input :total_duration, as: :range, input_html: { min: 0, max: 30, data: { controller: "filter", action: "input->filter#updateValue" } }, label: false %>
           <%= f.button :submit, "See results", class: "btn-general-pink btn-submit" %>
         <% end %>
       </li>
@@ -45,7 +45,7 @@
     <ul class="dropdown-menu">
       <li>
         <%= simple_form_for Trip.new, url: trips_path, method: :get, html:{class: "index-slider distance-slider"} do |f| %>
-          <%= f.input :total_distance, as: :range, input_html: { min: 0, max: 1500 }, label: false %>
+          <%= f.input :total_distance, as: :range, input_html: { min: 0, max: 1500, data: { controller: "filter", action: "input->filter#updateValue" } }, label: false %>
           <%= f.button :submit, "See results", class: "btn-general-pink btn-submit" %>
         <% end %>
       </li>
