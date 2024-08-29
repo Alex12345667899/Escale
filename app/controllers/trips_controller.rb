@@ -25,10 +25,21 @@ class TripsController < ApplicationController
         marker_html: render_to_string(partial: "marker")
       }
     end
-    # raise
   end
 
   def trains
+    @trip = Trip.find(params[:id])
+    @reviews = @trip.reviews
+    @user_trip_bookmark = Bookmark.find_by(user: current_user, trip: @trip)
+  end
+
+  def book
+    trip = Trip.find(params[:id])
+    step_depart = Step.find(params[:step]).title.split[0]
+    step_arrivee = trip.steps[params[:index].to_i+1].title.split[0]
+    url = "https://www.trainline.fr/search/#{step_depart}/#{step_arrivee}"
+    button = ClicTrainsApi.new(url)
+    button.call
   end
 
   def new

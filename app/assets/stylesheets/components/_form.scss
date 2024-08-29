@@ -31,3 +31,26 @@
 .custom-icon {
   color: #3b5998;
 }
+
+.blue-underline {
+  border-bottom: 1px solid rgb(48, 67, 139);
+}
+
+.blue-underline:hover {
+  border-bottom: 1px solid $pink;
+}
+
+.btn-small-blue {
+  background-color: $dark-blue;
+  color: white;
+  font-size: 13px;
+  padding: 8px 24px;
+  border-radius: 16px 60px 16px 16px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn-small-blue:hover {
+  background-color: $pink;
+  color: black;
+}

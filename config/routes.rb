@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :bookmarks, only: %i[create]
     member do
       get "trains"
+      get "book"
     end
   end
 
