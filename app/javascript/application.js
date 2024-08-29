@@ -8,3 +8,8 @@ import "controllers/map_controller"
 import "controllers/reviews_form"
 import "controllers/days_slider"
 
+import { Application } from "@hotwired/stimulus"
+import HideNavbarScrollController from "./controllers/hide_navbar_scroll"
+
+const application = Application.start()
+application.register("hide-navbar-scroll", HideNavbarScrollController)
