@@ -45,11 +45,11 @@ trip_attributes.each do |trip_attribute|
 end
 puts "#{Trip.count} trips created"
 
-bordeaux_to_berlin = Trip.find_by(title: "Bordeaux to Berlin")
-bordeaux_to_nice = Trip.find_by(title: "Bordeaux to Nice")
-bordeaux_to_prague = Trip.find_by(title: "Bordeaux to Prague")
-bordeaux_to_munich = Trip.find_by(title: "Bordeaux to Munich")
-bordeaux_to_valencia = Trip.find_by(title: "Bordeaux to Valencia")
+bordeaux_to_berlin = Trip.find_by(title: "Enchanting Bordeaux to Berlin Adventure")
+bordeaux_to_nice = Trip.find_by(title: "Scenic Bordeaux to Nice Getaway")
+bordeaux_to_prague = Trip.find_by(title: "Cultural Odyssey: Bordeaux to Prague")
+bordeaux_to_munich = Trip.find_by(title: "Gourmet & Scenic Bordeaux to Munich Journey")
+bordeaux_to_valencia = Trip.find_by(title: "Vibrant Bordeaux to Valencia Expedition")
 
 #-------------------------------------------------------------------------------------->
 
@@ -62,21 +62,21 @@ step_attributes = [
   { title: "Brussels, Belgium", content: "Continue your journey to Brussels, enjoy famous Belgian waffles and visit the Grand Place.", duration: 1 , order: 1, trip: bordeaux_to_berlin },
   { title: "Amsterdam, Netherlands", content: "Head to Amsterdam, explore the beautiful canals and visit the Van Gogh Museum.", duration: 2 , order: 2, trip: bordeaux_to_berlin },
   { title: "Berlin, Germany", content: "Conclude your trip in Berlin, discover historical sites like the Brandenburg Gate and Berlin Wall.", duration: 6, order: 3, trip: bordeaux_to_berlin},
-  { title: "Bordeaux, France", content: "Discover the charm of Bordeaux, with its world-famous wine culture, stunning architecture, and vibrant riverside life.", duration: 1, order: 0, trip: bordeaux_to_berlin },
+  { title: "Bordeaux, France", content: "Discover the charm of Bordeaux, with its world-famous wine culture, stunning architecture, and vibrant riverside life.", duration: 1, order: 0, trip: bordeaux_to_nice },
   { title: "Madrid, Spain", content: "Start your adventure by traveling to Madrid, experience vibrant Spanish culture and visit the Prado Museum.", duration: 5, order: 0, trip: bordeaux_to_nice },
   { title: "Barcelona, Spain", content: "Proceed to Barcelona, admire Gaudí's architectural masterpieces including Sagrada Família.", duration: 3, order: 1, trip: bordeaux_to_nice },
   { title: "Nice, France", content: "Travel to Nice, relax on the French Riviera and stroll along the Promenade des Anglais.", duration: 6, order: 2, trip: bordeaux_to_nice },
-  { title: "Bordeaux, France", content: "Discover the charm of Bordeaux, with its world-famous wine culture, stunning architecture, and vibrant riverside life.", duration: 1, order: 0, trip: bordeaux_to_berlin },
+  { title: "Bordeaux, France", content: "Discover the charm of Bordeaux, with its world-famous wine culture, stunning architecture, and vibrant riverside life.", duration: 1, order: 0, trip: bordeaux_to_prague },
   { title: "Geneva, Switzerland", content: "Begin your journey in Geneva, enjoy the stunning Lake Geneva and explore the United Nations headquarters.", duration: 6, order: 0, trip: bordeaux_to_prague },
   { title: "Milan, Italy", content: "Continue to Milan, the fashion capital of Italy, and visit the magnificent Duomo di Milano.", duration: 4, order: 1, trip: bordeaux_to_prague },
   { title: "Venice, Italy", content: "Head to Venice, experience romantic gondola rides through the city's famous canals.", duration: 2, order: 2, trip: bordeaux_to_prague },
   { title: "Vienna, Austria", content: "Conclude your trip in Vienna, explore grand palaces and enjoy classical music concerts.", duration: 6, order: 3, trip: bordeaux_to_prague },
   { title: "Prague, Czech Republic", content: "Optional extension to Prague, discover the historic Prague Castle and charming old town.", duration: 3, order: 4, trip: bordeaux_to_prague },
-  { title: "Bordeaux, France", content: "Discover the charm of Bordeaux, with its world-famous wine culture, stunning architecture, and vibrant riverside life.", duration: 1, order: 0, trip: bordeaux_to_berlin },
+  { title: "Bordeaux, France", content: "Discover the charm of Bordeaux, with its world-famous wine culture, stunning architecture, and vibrant riverside life.", duration: 1, order: 0, trip: bordeaux_to_munich },
   { title: "Lyon, France", content: "Start by visiting Lyon, known for its culinary excellence and historic architecture.", duration: 5, order: 0, trip: bordeaux_to_munich },
   { title: "Zurich, Switzerland", content: "Proceed to Zurich, enjoy beautiful lakeside views and explore Swiss culture.", duration: 4, order: 1, trip: bordeaux_to_munich },
   { title: "Munich, Germany", content: "Continue to Munich, visit the historic Marienplatz and enjoy traditional Bavarian cuisine.", duration: 3, order: 2, trip: bordeaux_to_munich },
-  { title: "Bordeaux, France", content: "Discover the charm of Bordeaux, with its world-famous wine culture, stunning architecture, and vibrant riverside life.", duration: 1, order: 0, trip: bordeaux_to_berlin },
+  { title: "Bordeaux, France", content: "Discover the charm of Bordeaux, with its world-famous wine culture, stunning architecture, and vibrant riverside life.", duration: 1, order: 0, trip: bordeaux_to_valencia },
   { title: "Lisbon, Portugal", content: "Embark on your journey to Lisbon, explore the city's rich history and enjoy delicious Portuguese pastries.", duration: 9, order: 0, trip: bordeaux_to_valencia },
   { title: "Seville, Spain", content: "Travel to Seville, admire the stunning Alcázar palace and experience lively flamenco performances.", duration: 4, order: 1, trip: bordeaux_to_valencia },
   { title: "Granada, Spain", content: "Proceed to Granada, visit the breathtaking Alhambra and enjoy panoramic views of the city.", duration: 2, order: 2, trip: bordeaux_to_valencia },
