@@ -1,5 +1,4 @@
-require "httparty"
-# require 'selenium-webdriver'
+require 'selenium-webdriver'
 
 class TrainlineApi
   def initialize(departure, arrival)
@@ -8,18 +7,33 @@ class TrainlineApi
   end
 
   def call
-    options = Selenium::WebDriver::Options.chrome(args: ['--headless=new'])
+    # options = Selenium::WebDriver::Options.chrome(args: ['--headless=new'])
+    options = Selenium::WebDriver::Chrome::Options.new
+    options.add_argument('--headless')
+    options.add_argument('--disable-gpu')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--disable-popup-blocking')
+    options.add_argument('--disable-infobars')
+    options.add_argument('--disable-extensions')
+    options.add_argument('--disable-notifications')
+    options.add_argument('--disable-blink-features=AutomationControlled')
     driver = Selenium::WebDriver.for :chrome, options: options
+    # driver = Selenium::WebDriver.for :chrome
     begin
       driver.navigate.to "https://www.thetrainline.com"
       sleep(2)
 
-      # initial_url = driver.current_url
-
-      departure_field = driver.find_element(id: 'jsf-origin-input')
-      departure_field.send_keys(@departure)
+      popup_html = driver.find_element(id: 'onetrust-consent-sdk')
+      driver.execute_script("arguments[0].removeAttribute('style')", popup_html)
+      # driver.action.delete(popup_html)
+      sleep(2)
       arrival_field = driver.find_element(id: 'jsf-destination-input')
       arrival_field.send_keys(@arrival)
+      sleep(1)
+      departure_field = driver.find_element(id: 'jsf-origin-input')
+      departure_field.send_keys(@departure)
+
       # arrival_field.attribute("value")
       # Locate and click on the date field
       # date_field = driver.find_element(id: 'jsf-outbound-time-input-toggle')
@@ -49,26 +63,27 @@ class TrainlineApi
       driver.action.click(skip_booking)
 
       submit = driver.find_element(css: '[data-testid="jsf-submit"]')
-      submit.submit()
-      sleep(2)
-      # wait = Selenium::WebDriver::Wait.new(timeout: 10)
-      # wait.until { driver.current_url != initial_url }
-      result_url = driver.current_url
-      puts "Result page URL: #{result_url}"
+      # submit.submit()
+      # sleep(2)
+      # # wait = Selenium::WebDriver::Wait.new(timeout: 10)
+      # # wait.until { driver.current_url != initial_url }
+      # result_url = driver.current_url
+      # puts "Result page URL: #{result_url}"
 
-      results = driver.find_elements(css: '[data-test="eu-journey-row-0-wrapper"]')
-      p results
-      debugger
-      results.each do |result|
-        puts result.text
-        p result
-        debugger
-      end
-    rescue StandardError => e
-      puts "An error occurred: #{e.message}"
-    ensure
-      # Close the browser window
-      driver.quit
+      # results = driver.find_elements(css: '[data-test="eu-journey-row-0-wrapper"]')
+      # p results
+      # debugger
+      # results.each do |result|
+      #   puts result.text
+      #   p result
+      #   debugger
+      # end
+      # rescue StandardError => e
+      #   puts "An error occurred: #{e.message}"
+      # ensure
+      #   # driver.quit
+      # end
+      # end
     end
   end
 end

@@ -1,2 +1,44 @@
 <div class="margin-navbar"></div>
-<h1>Trains booking</h1>
+
+<div class="container">
+  <h2 class="text-center">Book your trains</h2>
+
+  <% @trip.steps.each_with_index do |step, index| %>
+    <% next if @trip.steps.length - 1 == index %>
+    <% step_depart = step.title.split[0] %>
+    <% step_arrivee = @trip.steps[index+1].title.split[0] %>
+    <% num = index + 1 %>
+    <% url = "https://www.trainline.fr/search/#{step_depart}/#{step_arrivee}" %>
+
+    <div class="d-flex flex-inline my-4">
+      <p class="blue-underline"><%= "Step #{num} : #{step_depart} to #{step_arrivee}" %></p>
+      <div class="mx-2">
+        <a href=<%="#{url}" %> class="btn-small-blue" target="_blank" > See trains </a>
+      </div>
+    </div>
+
+  <% end%>
+</div>
+
+
+
+
+
+<!--
+<div class="margin-navbar"></div>
+<div class="container">
+  <h2 class="text-center">Book your trains</h2>
+  <%# @trip.steps.each_with_index do |step, index| %>-->
+    <%# next if @trip.steps.length - 1 == index %>
+    <%# step_depart = step.title.split[0] %>
+    <%# step_arrivee = @trip.steps[index+1].title.split[0] %>
+    <%# num = index + 1 %>
+<!--    <div class="d-flex flex-inline my-4">
+      <p class="blue-underline"><%#= "Step #{num} : #{step_depart} to #{step_arrivee}" %></p>
+      <div class="mx-2">
+        <%#= link_to "See Trains", book_trip_path(trip: @trip, step: step, index: index), input_html: { class: "btn-small-blue" } %>-->
+<!--      </div>
+    </div>
+  <%# end%>-->
+<!--</div>
+-->

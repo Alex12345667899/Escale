@@ -13,6 +13,7 @@ class Trip < ApplicationRecord
 
   require "open-uri"
   require "json"
+  require "nokogiri"
 
   include PgSearch::Model
   pg_search_scope :search_by_title_and_description,
@@ -58,5 +59,13 @@ class Trip < ApplicationRecord
       Footprint.create(transport: transport, trip: self, value: element["value"].to_i)
       puts "trip footprint is set"
     end
+  end
+
+  def trainline
+    # url = "https://www.trainline.fr/search/#{self.steps.first.title.split[0]}/#{self.steps.last.title.split[0]}"
+    # html_file = URI.open(url).read
+    # html_doc = Nokogiri::HTML.parse(html_file)
+    # @data = html_doc
+    @url = "https://www.trainline.fr/search/#{self.steps.first.title.split[0]}/#{self.steps.last.title.split[0]}"
   end
 end
