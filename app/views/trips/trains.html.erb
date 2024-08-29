@@ -5,7 +5,7 @@
 <div class="container-card">
   <div class="card-train m-3">
     <div class="card-train-content">
-      <% @trip.steps.each_with_index do |step, index| %>
+      <% @trip.steps.order(:order).each_with_index do |step, index| %>
         <% next if @trip.steps.length - 1 == index %>
         <% step_depart = step.title.split[0] %>
         <% step_arrivee = @trip.steps[index+1].title.split[0] %>
