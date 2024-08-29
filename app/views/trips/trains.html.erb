@@ -13,7 +13,8 @@
         <% url = "https://www.trainline.fr/search/#{step_depart}/#{step_arrivee}" %>
 
         <div class="d-flex flex-inline my-4">
-          <p class="blue-underline"><%= "Step #{num} : #{step_depart} to #{step_arrivee}" %></p>
+          <p class="blue-underline"><%= "Step #{num} : #{step_depart[0...-1]} to #{step_arrivee[0...-1]}" %></p>
+          <%# raise %>
           <div class="mx-2">
             <a href=<%="#{url}" %> class="btn-small-blue" target="_blank" > See trains </a>
           </div>
