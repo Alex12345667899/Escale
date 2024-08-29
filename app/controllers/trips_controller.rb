@@ -18,7 +18,7 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     @reviews = @trip.reviews
     @user_trip_bookmark = Bookmark.find_by(user: current_user, trip: @trip)
-    @markers = @trip.steps.map do |step|
+    @markers = @trip.steps.order(:order).map do |step|
       {
         lat: step.latitude,
         lng: step.longitude,

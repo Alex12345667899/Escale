@@ -75,22 +75,22 @@ file2 = URI.open("https://images.pexels.com/photos/2164683/pexels-photo-2164683.
 step1.photo.attach(io: file2, filename: "bordeaux_france.png", content_type: "image/png")
 step1.save
 
-step2 = Step.new(title: "Paris, France", content: "Travel from Bordeaux to the romantic city of Paris, explore iconic landmarks like the Eiffel Tower and Louvre Museum.", duration: 2, order: 0, trip: bordeaux_to_berlin)
+step2 = Step.new(title: "Paris, France", content: "Travel from Bordeaux to the romantic city of Paris, explore iconic landmarks like the Eiffel Tower and Louvre Museum.", duration: 2, order: 1, trip: bordeaux_to_berlin)
 file6 = URI.open("https://cdn.pixabay.com/photo/2018/04/25/09/26/eiffel-tower-3349075_1280.jpg")
 step2.photo.attach(io: file6, filename: "paris_france.png", content_type: "image/png")
 step2.save
 
-step3 = Step.new(title: "Brussels, Belgium", content: "Continue your journey to Brussels, enjoy famous Belgian waffles and visit the Grand Place.", duration: 1, order: 1, trip: bordeaux_to_berlin)
+step3 = Step.new(title: "Brussels, Belgium", content: "Continue your journey to Brussels, enjoy famous Belgian waffles and visit the Grand Place.", duration: 1, order: 2, trip: bordeaux_to_berlin)
 file7 = URI.open("https://images.pexels.com/photos/103552/pexels-photo-103552.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
 step3.photo.attach(io: file7, filename: "brussels_belgium.png", content_type: "image/png")
 step3.save
 
-step4 = Step.new(title: "Amsterdam, Netherlands", content: "Head to Amsterdam, explore the beautiful canals and visit the Van Gogh Museum.", duration: 2, order: 2, trip: bordeaux_to_berlin)
+step4 = Step.new(title: "Amsterdam, Netherlands", content: "Head to Amsterdam, explore the beautiful canals and visit the Van Gogh Museum.", duration: 2, order: 3, trip: bordeaux_to_berlin)
 file8 = URI.open("https://images.pexels.com/photos/2026451/pexels-photo-2026451.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
 step4.photo.attach(io: file8, filename: "amsterdam_netherlands.png", content_type: "image/png")
 step4.save
 
-step5 = Step.new(title: "Berlin, Germany", content: "Conclude your trip in Berlin, discover historical sites like the Brandenburg Gate and Berlin Wall.", duration: 6, order: 3, trip: bordeaux_to_berlin)
+step5 = Step.new(title: "Berlin, Germany", content: "Conclude your trip in Berlin, discover historical sites like the Brandenburg Gate and Berlin Wall.", duration: 6, order: 4, trip: bordeaux_to_berlin)
 file9 = URI.open("https://images.pexels.com/photos/109630/pexels-photo-109630.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
 step5.photo.attach(io: file9, filename: "berlin_germany.png", content_type: "image/png")
 step5.save
@@ -100,17 +100,17 @@ file10 = URI.open("https://images.pexels.com/photos/2164683/pexels-photo-2164683
 step6.photo.attach(io: file10, filename: "bordeaux_france.png", content_type: "image/png")
 step6.save
 
-step7 = Step.new(title: "Madrid, Spain", content: "Start your adventure by traveling to Madrid, experience vibrant Spanish culture and visit the Prado Museum.", duration: 5, order: 0, trip: bordeaux_to_nice)
+step7 = Step.new(title: "Madrid, Spain", content: "Start your adventure by traveling to Madrid, experience vibrant Spanish culture and visit the Prado Museum.", duration: 5, order: 1, trip: bordeaux_to_nice)
 file11 = URI.open("https://images.pexels.com/photos/930595/pexels-photo-930595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
 step7.photo.attach(io: file11, filename: "madrid_spain.png", content_type: "image/png")
 step7.save
 
-step8 = Step.new(title: "Barcelona, Spain", content: "Proceed to Barcelona, admire Gaudí's architectural masterpieces including Sagrada Família.", duration: 3, order: 1, trip: bordeaux_to_nice)
+step8 = Step.new(title: "Barcelona, Spain", content: "Proceed to Barcelona, admire Gaudí's architectural masterpieces including Sagrada Família.", duration: 3, order: 2, trip: bordeaux_to_nice)
 file12 = URI.open("https://images.pexels.com/photos/819764/pexels-photo-819764.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
 step8.photo.attach(io: file12, filename: "barcelona_spain.png", content_type: "image/png")
 step8.save
 
-step9 = Step.new(title: "Nice, France", content: "Travel to Nice, relax on the French Riviera and stroll along the Promenade des Anglais.", duration: 6, order: 2, trip: bordeaux_to_nice)
+step9 = Step.new(title: "Nice, France", content: "Travel to Nice, relax on the French Riviera and stroll along the Promenade des Anglais.", duration: 6, order: 3, trip: bordeaux_to_nice)
 file13 = URI.open("https://images.pexels.com/photos/26928989/pexels-photo-26928989/free-photo-of-mer-ville-montagnes-france.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
 step9.photo.attach(io: file13, filename: "nice_france.png", content_type: "image/png")
 step9.save
@@ -122,31 +122,31 @@ step10.photo.attach(io: file14, filename: "bordeaux_france.png", content_type: "
 step10.save
 
 
-step11 = Step.new(title: "Geneva, Switzerland", content: "Begin your journey in Geneva, enjoy the stunning Lake Geneva and explore the United Nations headquarters.", duration: 6, order: 0, trip: bordeaux_to_prague)
+step11 = Step.new(title: "Geneva, Switzerland", content: "Begin your journey in Geneva, enjoy the stunning Lake Geneva and explore the United Nations headquarters.", duration: 6, order: 1, trip: bordeaux_to_prague)
 file15 = URI.open("https://images.pexels.com/photos/17190957/pexels-photo-17190957/free-photo-of-ville-monument-lac-voyager.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
 step11.photo.attach(io: file15, filename: "geneva_switzerland.png", content_type: "image/png")
 step11.save
 
 
-step12 = Step.new(title: "Milan, Italy", content: "Continue to Milan, the fashion capital of Italy, and visit the magnificent Duomo di Milano.", duration: 4, order: 1, trip: bordeaux_to_prague)
+step12 = Step.new(title: "Milan, Italy", content: "Continue to Milan, the fashion capital of Italy, and visit the magnificent Duomo di Milano.", duration: 4, order: 2, trip: bordeaux_to_prague)
 file16 = URI.open("https://images.pexels.com/photos/2097092/pexels-photo-2097092.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
 step12.photo.attach(io: file16, filename: "milan_italy.png", content_type: "image/png")
 step12.save
 
 
-step13 = Step.new(title: "Venice, Italy", content: "Head to Venice, experience romantic gondola rides through the city's famous canals.", duration: 2, order: 2, trip: bordeaux_to_prague)
+step13 = Step.new(title: "Venice, Italy", content: "Head to Venice, experience romantic gondola rides through the city's famous canals.", duration: 2, order: 3, trip: bordeaux_to_prague)
 file17 = URI.open("https://images.pexels.com/photos/705782/pexels-photo-705782.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
 step13.photo.attach(io: file17, filename: "venice_italy.png", content_type: "image/png")
 step13.save
 
 
-step14 = Step.new(title: "Vienna, Austria", content: "Conclude your trip in Vienna, explore grand palaces and enjoy classical music concerts.", duration: 6, order: 3, trip: bordeaux_to_prague)
+step14 = Step.new(title: "Vienna, Austria", content: "Conclude your trip in Vienna, explore grand palaces and enjoy classical music concerts.", duration: 6, order: 4, trip: bordeaux_to_prague)
 file18 = URI.open("https://vienna-unwrapped.com/wp-content/uploads/2024/08/IsViennaACountry-ezgif.com-png-to-jpg-converter.jpg")
 step14.photo.attach(io: file18, filename: "vienna_austria.png", content_type: "image/png")
 step14.save
 
 
-step15 = Step.new(title: "Prague, Czech Republic", content: "Optional extension to Prague, discover the historic Prague Castle and charming old town.", duration: 3, order: 4, trip: bordeaux_to_prague)
+step15 = Step.new(title: "Prague, Czech Republic", content: "Optional extension to Prague, discover the historic Prague Castle and charming old town.", duration: 3, order: 5, trip: bordeaux_to_prague)
 file19 = URI.open("https://images.pexels.com/photos/442583/pexels-photo-442583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
 step15.photo.attach(io: file19, filename: "prague_czech_republic.png", content_type: "image/png")
 step15.save
@@ -158,19 +158,19 @@ step16.photo.attach(io: file20, filename: "bordeaux_france.png", content_type: "
 step16.save
 
 
-step17 = Step.new(title: "Lyon, France", content: "Start by visiting Lyon, known for its culinary excellence and historic architecture.", duration: 5, order: 0, trip: bordeaux_to_munich)
+step17 = Step.new(title: "Lyon, France", content: "Start by visiting Lyon, known for its culinary excellence and historic architecture.", duration: 5, order: 1, trip: bordeaux_to_munich)
 file21 = URI.open("https://images.pexels.com/photos/5868282/pexels-photo-5868282.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
 step17.photo.attach(io: file21, filename: "lyon_france.png", content_type: "image/png")
 step17.save
 
 
-step18 = Step.new(title: "Zurich, Switzerland", content: "Proceed to Zurich, enjoy beautiful lakeside views and explore Swiss culture.", duration: 4, order: 1, trip: bordeaux_to_munich)
+step18 = Step.new(title: "Zurich, Switzerland", content: "Proceed to Zurich, enjoy beautiful lakeside views and explore Swiss culture.", duration: 4, order: 2, trip: bordeaux_to_munich)
 file22 = URI.open("https://images.pexels.com/photos/27778621/pexels-photo-27778621/free-photo-of-ville-monument-marcher-ete.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
 step18.photo.attach(io: file22, filename: "zurich_switzerland.png", content_type: "image/png")
 step18.save
 
 
-step19 = Step.new(title: "Munich, Germany", content: "Continue to Munich, visit the historic Marienplatz and enjoy traditional Bavarian cuisine.", duration: 3, order: 2, trip: bordeaux_to_munich)
+step19 = Step.new(title: "Munich, Germany", content: "Continue to Munich, visit the historic Marienplatz and enjoy traditional Bavarian cuisine.", duration: 3, order: 3, trip: bordeaux_to_munich)
 file23 = URI.open("https://images.pexels.com/photos/9827/pexels-photo-9827.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
 step19.photo.attach(io: file23, filename: "munich_germany.png", content_type: "image/png")
 step19.save
@@ -182,25 +182,25 @@ step20.photo.attach(io: file24, filename: "bordeaux_france.png", content_type: "
 step20.save
 
 
-step21 = Step.new(title: "Lisbon, Portugal", content: "Embark on your journey to Lisbon, explore the city's rich history and enjoy delicious Portuguese pastries.", duration: 9, order: 0, trip: bordeaux_to_valencia)
+step21 = Step.new(title: "Lisbon, Portugal", content: "Embark on your journey to Lisbon, explore the city's rich history and enjoy delicious Portuguese pastries.", duration: 9, order: 1, trip: bordeaux_to_valencia)
 file25 = URI.open("https://img-4.linternaute.com/7GvKgODhSJWxaWCPn72qvLeA4w8=/660x366/smart/5b4ef0d8e6c64a99990e2b6e0e6a7de2/ccmcms-linternaute/10985721.jpg")
 step21.photo.attach(io: file25, filename: "lisbon_portugal.png", content_type: "image/png")
 step21.save
 
 
-step22 = Step.new(title: "Seville, Spain", content: "Travel to Seville, admire the stunning Alcázar palace and experience lively flamenco performances.", duration: 4, order: 1, trip: bordeaux_to_valencia)
+step22 = Step.new(title: "Seville, Spain", content: "Travel to Seville, admire the stunning Alcázar palace and experience lively flamenco performances.", duration: 4, order: 2, trip: bordeaux_to_valencia)
 file26 = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Sevilla_Cathedral_-_Southeast.jpg/800px-Sevilla_Cathedral_-_Southeast.jpg")
 step22.photo.attach(io: file26, filename: "seville_spain.png", content_type: "image/png")
 step22.save
 
 
-step23 = Step.new(title: "Granada, Spain", content: "Proceed to Granada, visit the breathtaking Alhambra and enjoy panoramic views of the city.", duration: 2, order: 2, trip: bordeaux_to_valencia)
+step23 = Step.new(title: "Granada, Spain", content: "Proceed to Granada, visit the breathtaking Alhambra and enjoy panoramic views of the city.", duration: 2, order: 3, trip: bordeaux_to_valencia)
 file27 = URI.open("https://cdn-imgix.headout.com/media/images/4f89d6eeb324e19ee61af4fb172380e9-18731-granada-the-alhambra-palace---skip-the-line-e-ticket-with-audio-tour-on-your-phone-04.jpg")
 step23.photo.attach(io: file27, filename: "granada_spain.png", content_type: "image/png")
 step23.save
 
 
-step24 = Step.new(title: "Valencia, Spain", content: "Conclude your trip in Valencia, relax on beautiful beaches and explore the City of Arts and Sciences.", duration: 5, order: 3, trip: bordeaux_to_valencia)
+step24 = Step.new(title: "Valencia, Spain", content: "Conclude your trip in Valencia, relax on beautiful beaches and explore the City of Arts and Sciences.", duration: 5, order: 4, trip: bordeaux_to_valencia)
 file28 = URI.open("https://media.routard.com/image/70/8/valence-fontaine.1553708.jpg")
 step24.photo.attach(io: file28, filename: "valencia_spain.png", content_type: "image/png")
 step24.save
