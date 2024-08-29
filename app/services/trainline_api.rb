@@ -1,4 +1,4 @@
-require 'selenium-webdriver'
+# require 'selenium-webdriver'
 
 class TrainlineApi
   def initialize(departure, arrival)
