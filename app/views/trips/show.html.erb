@@ -47,7 +47,7 @@
           <% @trip.steps.sort_by(&:order).each_with_index do |step, index| %>
             <div class="carousel-item <%= 'active' if index == 0 %>">
 
-              <p class="mt-1 text-secondary text-center"><b>Step <%= step.order + 1 %></b></p>
+              <p class="mt-1 text-secondary text-center"><b>Step <%= index + 1 %></b></p>
               <h3 class="text-center"><%= "#{step.title.split[0]} #{step.title.split[-1]}" %></h3>
 
               <% if step.photo.present? %>
