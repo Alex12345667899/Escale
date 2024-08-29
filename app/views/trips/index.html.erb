@@ -3,7 +3,7 @@
 
 <!--<h2 class="text-center">Find your adventure</h2>-->
 
-<% if params[:search][:query].present? %>
+<% if params[:search] && params[:search][:query].present? %>
   <h3 class="text-center">Results for: "<%= params[:search][:query] %>"</h3>
 <% end %>
 
