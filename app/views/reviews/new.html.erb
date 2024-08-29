@@ -7,7 +7,7 @@
 
   <div class="mt-3 mx-5">
     <%= simple_form_for @review, url: url_for(:action => 'create', :controller => 'reviews'), html: { id: "review-form" } do |f| %>
-        <%= f.input :content %>
+        <%= f.input :content, label: "Describe your trip" %>
         <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
       <%= f.submit "Submit review", class: "btn-general-blue mb-3" %>
     <% end %>
