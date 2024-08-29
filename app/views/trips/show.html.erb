@@ -53,6 +53,7 @@
               <% if step.photo.present? %>
                 <div class="d-flex justify-content-center mt-3 mb-3">
                   <%= cl_image_tag step.photo.key, class: "img-show" %>
+                  <%# <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
                 </div>
               <% else %>
                 <div class="d-flex justify-content-center mt-3 mb-3">
@@ -90,27 +91,32 @@
     </div>
   </div>
 
-<div class="cards-reviews-grid">
-  <% @reviews.each do |review| %>
-    <div class="card-review">
-      <div class="card-review-top-content">
-        <div class="card-review-user-content">
-          <%= image_tag review.user.picture, class: "card-review-user-picture" %>
-        </div>
-        <ul class="star-rating-display">
-          <% rating = review.rating || 0 %> <!-- Définit la note à 0 si elle est nil -->
-          <% 5.times do |i| %>
-            <% if i < rating %>
-              <li><i class="fa-solid fa-star"></i></li>
-            <% else %>
-              <li><i class="fa-regular fa-star"></i></li>
+  <div class="mt-5 mb-4">
+    <h2>Reviews</h2>
+  </div>
+
+  <div class="cards-reviews-grid">
+    <% @reviews.each do |review| %>
+      <div class="card-review">
+        <div class="card-review-top-content">
+          <div class="card-review-user-content">
+            <%= image_tag review.user.picture, class: "card-review-user-picture" %>
+          </div>
+          <ul class="star-rating-display">
+            <% rating = review.rating || 0 %> <!-- Définit la note à 0 si elle est nil -->
+            <% 5.times do |i| %>
+              <% if i < rating %>
+                <li><i class="fa-solid fa-star"></i></li>
+              <% else %>
+                <li><i class="fa-regular fa-star"></i></li>
+              <% end %>
             <% end %>
-          <% end %>
-        </ul>
+          </ul>
+        </div>
+        <article>
+          <p><%= review.content %></p>
+        </article>
       </div>
-      <article>
-        <p><%= review.content %></p>
-      </article>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
