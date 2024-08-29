@@ -29,7 +29,7 @@ export default class extends Controller {
   handleScroll() {
     const currentScrollPos = window.scrollY
 
-    if (this.prevScrollpos > currentScrollPos) {
+    if (this.prevScrollpos >= currentScrollPos) {
       this.navbarTarget.style.top = "0"
     } else {
       this.navbarTarget.style.top = "-100px"
