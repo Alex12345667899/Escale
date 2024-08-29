@@ -60,6 +60,7 @@
     font-size: 1.9rem;
     text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
     line-height: 1.4;
+    margin-top: 20%;
     word-spacing: 100vw;
   }
 }
@@ -109,6 +110,7 @@
   padding: 24px;
   position: absolute;
   top: 0;
+  margin-top: 15%;
 
   p {
     color: rgba(255,255,255,0.6);
@@ -122,7 +124,7 @@
     font-size: 1.9rem;
     text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
     line-height: 1.4;
-    word-spacing: 100vw;
+    // word-spacing: 100vw;
   }
 }
 
@@ -310,9 +312,9 @@
   left: 10px;
   background-color: #CCEAC4;
   color: black;
-  padding: 5px 10px;
+  padding: 12px 15px;
   border-radius: 12px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: bold;
   z-index: 1;
 }
