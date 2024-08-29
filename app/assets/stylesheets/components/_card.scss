@@ -204,6 +204,20 @@
   align-items: center;
 }
 
+.badge-pill-home {
+  position: absolute;
+  top: 2%;
+  left: 55%;
+  background-color: #CCEAC4;
+  color: black;
+  padding: 12px 15px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+
 .cards-bookmark-grid {
   display: grid;
   box-sizing: border-box;
