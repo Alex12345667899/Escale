@@ -13,7 +13,6 @@ class BookmarksController < ApplicationController
     @bookmark.user = current_user
     @bookmark.status = :to_do
     if @bookmark.save
-      flash[:success] = "Trip bookmarked !"
       redirect_to trip_path(@bookmark.trip)
     else
       flash[:alert] = "Unable to bookmark the trip"
@@ -24,7 +23,6 @@ class BookmarksController < ApplicationController
   def update
     @bookmark.status = params[:status]
     if @bookmark.save
-      flash[:success] = "Trip status updated !"
       redirect_to bookmarks_path
     else
       flash[:alert] = "Unable to update the trip"
