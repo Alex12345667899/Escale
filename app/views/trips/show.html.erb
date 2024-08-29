@@ -10,7 +10,7 @@
 <div class="container-show-trip">
   <%# ---------Titres, distance, temps, Co2--------- %>
   <div class="d-flex gap-3 align-items-center">
-    <h1><%= @trip.title.capitalize %></h1>
+    <h1><%= @trip.title %></h1>
     <% if @user_trip_bookmark.present? && @user_trip_bookmark.to_do? %>
       <%= link_to bookmark_path(@user_trip_bookmark), data: { turbo_method: :delete }, class: "btn btn-lg" do %>
         <i class="bi bi-bookmark-check-fill"></i>
@@ -22,7 +22,7 @@
     <% end %>
   </div>
   <h4><%= "#{@trip.steps.count} steps - #{@trip.total_duration} days - #{@trip.total_distance} km" %></h4>
-  <p><%= @trip.description.capitalize %></p>
+  <p><%= @trip.description %></p>
 
   <!--  <p>This trip saves <%#= plane - train %> kg of CO₂ compared to air travel.</p>-->
 
@@ -49,7 +49,7 @@
             <div class="carousel-item <%= 'active' if index == 0 %>">
 
               <p class="mt-1 text-secondary text-center"><b>Step <%= step.order + 1 %></b></p>
-              <h3 class="text-center"><%= "#{step.title.split[0].capitalize}" %></h3>
+              <h3 class="text-center"><%= "#{step.title.split[0]} #{step.title.split[-1]}" %></h3>
 
               <% if step.photo.present? %>
                 <div class="d-flex justify-content-center mt-3 mb-3">
@@ -66,7 +66,7 @@
               <% end %>
               <div class="carousel-desc">
                 <h5>Description</h5>
-                <p class="text-wrap"><%= step.content.capitalize %></p>
+                <p class="text-wrap"><%= step.content %></p>
                 <p><%= "⏱️ #{step.duration} days 📍 #{step.distance} km" %></p>
               </div>
             </div>
