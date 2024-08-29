@@ -62,9 +62,6 @@
     <% car = trip.footprints.last.value.to_i %>
     <%# ---------/SETUP--------- %>
       <%= link_to trip_path(trip), class: "card-index" do %>
-       <div class="badge-pill-index">
-          <%= plane - train %> kg CO₂ avoided
-        </div>
         <% if trip.photo.present? %>
           <%= cl_image_tag trip.photo.key, class: "card-index-background" %>
         <% else %>
@@ -73,6 +70,9 @@
         <div class="card-index-content">
           <h3><%= trip.title %></h3>
           <p><i><%= "#{trip.total_duration} days, #{trip.total_distance} km" %></i></p>
+        </div>
+         <div class="badge-pill-index">
+          <%= plane - train %> kg CO₂ avoided
         </div>
       <% end %>
     <% end %>
