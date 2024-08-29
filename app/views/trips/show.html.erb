@@ -54,6 +54,7 @@
               <% if step.photo.present? %>
                 <div class="d-flex justify-content-center mt-3 mb-3">
                   <%= cl_image_tag step.photo.key, class: "img-show" %>
+                  <%# <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
                 </div>
               <% else %>
                 <div class="d-flex justify-content-center mt-3 mb-3">
