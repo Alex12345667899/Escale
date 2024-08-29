@@ -74,8 +74,9 @@
         <% end %>
         <div class="card-index-content">
           <h3><%= trip.title %></h3>
-          <p><i><%= "#{trip.total_duration} days, #{trip.total_distance} km" %></i></p>
-          <p><%= trip.steps.count %> steps</p>
+          <p class="text-white"><%= trip.steps.count %> steps
+          <p class="text-white"><%= "#{trip.total_duration} days" %>
+          <p class="text-white"><%= "#{trip.total_distance} km" %></p>
         </div>
          <div class="badge-pill-index">
           <%= plane - train %> kg CO₂ avoided
