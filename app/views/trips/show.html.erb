@@ -10,17 +10,18 @@
 <div class="container-show-trip">
   <%# ---------Titres, distance, temps, Co2--------- %>
   <div class="d-flex gap-3 align-items-center">
-    <h1><%= @trip.title %> - <%= "#{@trip.total_duration} days, #{@trip.total_distance} km" %></h1>
+    <h1><%= @trip.title %></h1>
     <% if @user_trip_bookmark.present? && @user_trip_bookmark.to_do? %>
       <%= link_to bookmark_path(@user_trip_bookmark), data: { turbo_method: :delete }, class: "btn btn-lg" do %>
-        <i class="fa-solid fa-bookmark fa-2x"></i>
+        <i class="bi bi-bookmark-check-fill"></i>
       <% end %>
     <% else %>
       <%= link_to trip_bookmarks_path(trip_id: @trip.id, authenticity_token: form_authenticity_token), data: { turbo_method: :create }, class: "btn btn-lg" do %>
-        <i class="fa-regular fa-bookmark fa-2x black"></i>
+        <i class="bi bi-bookmark-plus"></i>
       <% end %>
     <% end %>
   </div>
+  <h4><%= "#{@trip.steps.count} steps - #{@trip.total_duration} days - #{@trip.total_distance} km" %></h4>
   <p><%= @trip.description %></p>
 
   <!--  <p>This trip saves <%#= plane - train %> kg of CO₂ compared to air travel.</p>-->
@@ -89,7 +90,6 @@
       </div>
     </div>
   </div>
-</div>
 
 <div class="cards-reviews-grid">
   <% @reviews.each do |review| %>
