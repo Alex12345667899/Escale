@@ -202,7 +202,6 @@
   align-items: center;
 }
 
-
 .cards-bookmark-grid {
   display: grid;
   box-sizing: border-box;
@@ -263,7 +262,6 @@
 
 .cards-reviews-grid {
   margin: 0;
-
   padding: 0;
   box-sizing: border-box;
   width: 100%;
@@ -275,10 +273,12 @@
   color: white;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .card-review {
   width: 300px;
+  height: 100%;
   padding: 10px;
   margin: 1rem;
   border-radius: 10px;
