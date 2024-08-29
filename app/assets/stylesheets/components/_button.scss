@@ -32,8 +32,28 @@
   color: white;
 }
 
-.navbar-button {
+.btn-middle-pink {
   background-color: $pink;
+  color: black;
+  padding: 8px 24px;
+  border-radius: 16px 16px 16px 16px;
+  text-decoration: none;
+  transition: 0.3s ease;
+
+  &.btn-submit {
+    display: block;
+    margin-left: auto;
+    margin-right: 8px;
+  }
+}
+
+.btn-middle-pink:hover {
+  background-color: $dark-blue;
+  color: white;
+}
+
+.navbar-button {
+  background-color: #F2ABCB;
   color: $white-grey;
   border-radius: 10px;
   padding:12px;
@@ -61,6 +81,22 @@
   scale: 1.1;
 }
 
+.btn-submit-pink {
+  background-color: $pink;
+  color: black;
+  padding: 8px 24px;
+  border-radius: 5px 5px 20px 20px;
+  text-decoration: none;
+  transition: 0.3s ease;
+  width: 100%;
+  font-size: 20px;
+}
+
+.btn-submit-pink:hover {
+  background-color: $dark-blue;
+  color: white;
+}
+
 .btn-subscribe {
   background-color: black;
   color: $white-grey;
@@ -84,7 +120,7 @@
   letter-spacing: 0.025rem;
   text-transform: uppercase;
   color: black;
-  background-color: $pink;
+  background-color: #F2ABCB;
   border: none;
   text-decoration: none;
 }

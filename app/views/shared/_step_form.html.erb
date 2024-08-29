@@ -7,8 +7,8 @@
 
   <%= f.input :content, label: 'Describe this step', as: :text %>
   <%= f.input :duration, label: 'Step duration in days', as: :integer %>
-  <%= f.input :photo, label: 'Add step picture', as: :file %>
+  <%= f.input :photo, label: 'Add a step picture', as: :file %>
 
-  <button type="button" data-action="nested-form#remove">Remove step</button>
+  <button class="btn-general-blue" data-action="nested-form#remove">Remove step</button>
   <%= f.input :_destroy, as: :hidden %>
 </div>

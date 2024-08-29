@@ -1,4 +1,3 @@
-# require "httparty"
 require 'selenium-webdriver'
 
 class TrainlineApi

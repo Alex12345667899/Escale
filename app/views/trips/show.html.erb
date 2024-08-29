@@ -1,6 +1,5 @@
 <div class="margin-navbar"></div>
 
-
 <%# ---------SETUP--------- %>
 <% plane = @trip.footprints.first.value.to_i %>
 <% train = @trip.footprints.second.value.to_i %>
@@ -10,18 +9,19 @@
 <div class="container-show-trip">
   <%# ---------Titres, distance, temps, Co2--------- %>
   <div class="d-flex gap-3 align-items-center">
-    <h1><%= @trip.title.capitalize %> - <%= "#{@trip.total_duration} days, #{@trip.total_distance} km" %></h1>
+    <h1><%= @trip.title %></h1>
     <% if @user_trip_bookmark.present? && @user_trip_bookmark.to_do? %>
       <%= link_to bookmark_path(@user_trip_bookmark), data: { turbo_method: :delete }, class: "btn btn-lg" do %>
-        <i class="fa-solid fa-bookmark fa-2x"></i>
+        <i class="bi bi-bookmark-check-fill"></i>
       <% end %>
     <% else %>
       <%= link_to trip_bookmarks_path(trip_id: @trip.id, authenticity_token: form_authenticity_token), data: { turbo_method: :create }, class: "btn btn-lg" do %>
-        <i class="fa-regular fa-bookmark fa-2x black"></i>
+        <i class="bi bi-bookmark-plus"></i>
       <% end %>
     <% end %>
   </div>
-  <p><%= @trip.description.capitalize %></p>
+  <h4><%= "#{@trip.steps.count} steps - #{@trip.total_duration} days - #{@trip.total_distance} km" %></h4>
+  <p><%= @trip.description %></p>
 
   <!--  <p>This trip saves <%#= plane - train %> kg of CO₂ compared to air travel.</p>-->
 
@@ -47,12 +47,13 @@
           <% @trip.steps.sort_by(&:order).each_with_index do |step, index| %>
             <div class="carousel-item <%= 'active' if index == 0 %>">
 
-              <p class="mt-1 text-secondary text-center"><b>Step <%= step.order + 1 %></b></p>
-              <h3 class="text-center"><%= "#{step.title.capitalize}" %></h3>
+              <p class="mt-1 text-secondary text-center"><b>Step <%= index + 1 %></b></p>
+              <h3 class="text-center"><%= "#{step.title.split[0]} #{step.title.split[-1]}" %></h3>
 
               <% if step.photo.present? %>
                 <div class="d-flex justify-content-center mt-3 mb-3">
                   <%= cl_image_tag step.photo.key, class: "img-show" %>
+                  <%# <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
                 </div>
               <% else %>
                 <div class="d-flex justify-content-center mt-3 mb-3">
@@ -65,7 +66,7 @@
               <% end %>
               <div class="carousel-desc">
                 <h5>Description</h5>
-                <p class="text-wrap"><%= step.content.capitalize %></p>
+                <p class="text-wrap"><%= step.content %></p>
                 <p><%= "⏱️ #{step.duration} days 📍 #{step.distance} km" %></p>
               </div>
             </div>
@@ -89,27 +90,34 @@
       </div>
     </div>
   </div>
-</div>
+  <% if @reviews.present? %>
+    <div class="mt-5 mb-4">
+      <h2>Reviews ( <%= @reviews.count %> )</h2>
+    </div>
+  <% end %>
 
-<div class="cards-reviews-grid">
-  <% @reviews.each do |review| %>
-    <div class="card-review">
+  <div class="cards-reviews-grid">
+    <% @reviews.each do |review| %>
+      <div class="card-review">
         <div class="card-review-top-content">
           <div class="card-review-user-content">
-            <%= image_tag current_user.picture, class: "card-review-user-picture" %>
-
+            <%= image_tag review.user.picture, class: "card-review-user-picture" %>
           </div>
-          <ul>
-            <li><i class="fa-solid fa-star"></i></li>
-            <li><i class="fa-solid fa-star"></i></li>
-            <li><i class="fa-solid fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
-            <li><i class="fa-regular fa-star"></i></li>
+          <ul class="star-rating-display">
+            <% rating = review.rating || 0 %> <!-- Définit la note à 0 si elle est nil -->
+            <% 5.times do |i| %>
+              <% if i < rating %>
+                <li><i class="fa-solid fa-star"></i></li>
+              <% else %>
+                <li><i class="fa-regular fa-star"></i></li>
+              <% end %>
+            <% end %>
           </ul>
         </div>
         <article>
           <p><%= review.content %></p>
         </article>
-    </div>
-  <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>

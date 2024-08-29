@@ -1,9 +1,10 @@
 class ReviewsController < ApplicationController
-  before_action :set_trip, only: %i[create]
+  before_action :set_trip, only: %i[new create]
 
   def new
     @review = Review.new
     @bookmark = Bookmark.find(params[:bookmark_id])
+    @review.trip = @trip
   end
 
   def create
@@ -11,7 +12,6 @@ class ReviewsController < ApplicationController
     @review.trip = @trip
     @review.user = current_user
     if @review.save
-      flash[:success] = "Review was successfully created !"
       redirect_to trip_path(@trip)
     else
       render :new, status: :unprocessable_entity
